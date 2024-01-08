@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.client.page.index');
-});
+//#Homepage
+Route::get('/', [App\Http\Controllers\Client\HomepageController::class, 'index']);
