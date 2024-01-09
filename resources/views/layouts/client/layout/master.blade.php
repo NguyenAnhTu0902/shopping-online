@@ -134,7 +134,7 @@
                 <nav class="nav-menu mobie-menu">
                     <ul>
                         <li class=""><a href="./">Home</a></li>
-                        <li class=""><a href="./shop">Shop</a></li>
+                        <li class=""><a href="./san-pham">Shop</a></li>
                         <li><a href="">Blog</a></li>
                         <li><a href="">Contact</a></li>
                         <li><a href="/my-order/">My Order</a></li>

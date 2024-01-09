@@ -25,3 +25,8 @@ Route::prefix('/dang-ky')->group(function () {
     Route::get('', [App\Http\Controllers\Client\AuthController::class, 'register']);
     Route::post('', [App\Http\Controllers\Client\AuthController::class, 'checkRegister'])->name('register');
 });
+
+//Show product
+Route::prefix('/san-pham')->group(function () {
+    Route::get('', [App\Http\Controllers\Client\ProductController::class, 'index']);
+});
