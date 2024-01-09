@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Repositories\Auth\AuthRepository;
 use App\Repositories\Auth\AuthRepositoryInterface;
+use App\Repositories\Brand\BrandRepository;
+use App\Repositories\Brand\BrandRepositoryInterface;
 use App\Repositories\DesignatedServiceOfMedicalSession\DSMedSessionRepository;
 use App\Repositories\DesignatedServiceOfMedicalSession\DSMedSessionRepositoryInterface;
 use App\Repositories\DesignatedServiceType\DesignatedServiceTypeRepository;
@@ -18,6 +20,8 @@ use App\Repositories\MedicalSessionRooms\MedicalSessionRoomRepository;
 use App\Repositories\MedicalSessionRooms\MedicalSessionRoomRepositoryInterface;
 use App\Repositories\Permission\PermissionRepository;
 use App\Repositories\Permission\PermissionRepositoryInterface;
+use App\Repositories\Product\ProductRepository;
+use App\Repositories\Product\ProductRepositoryInterface;
 use App\Repositories\Role\RoleRepository;
 use App\Repositories\Role\RoleRepositoryInterface;
 use App\Repositories\User\UserRepository;
@@ -34,7 +38,8 @@ class RepositoryServiceProvider extends ServiceProvider
      * @var array
      */
     public array $singletons = [
-        // UserRepositoryInterface::class => UserRepository::class,
+        BrandRepositoryInterface::class => BrandRepository::class,
+        ProductRepositoryInterface::class => ProductRepository::class,
     ];
 
     /**
@@ -44,13 +49,13 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $repositories = [
-            // 'News\NewsRepositoryInterface' => 'News\NewsRepository',
-        ];
-
-        foreach ($repositories as $key => $value) {
-            $this->app->bind("App\\Repositories\\$key", "App\\Repositories\\$value");
-        }
+//        $repositories = [
+//            // 'News\NewsRepositoryInterface' => 'News\NewsRepository',
+//        ];
+//
+//        foreach ($repositories as $key => $value) {
+//            $this->app->bind("App\\Repositories\\$key", "App\\Repositories\\$value");
+//        }
     }
 
     /**

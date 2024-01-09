@@ -62,15 +62,6 @@
                 <div class="col-lg-3">
                     <form action="">
                         <div class="filter-widget">
-                            <h4 class="fw-title">Categories</h4>
-                            <ul class="filter-catagories">
-                                <li><a href="">Loafer</a></li>
-                                <li><a href="">Chelsea Boot</a></li>
-                                <li><a href="">Harness Boot</a></li>
-                                <li><a href="">Chunky Boot</a></li>
-                            </ul>
-                        </div>
-                        <div class="filter-widget">
                             <h4 class="fw-title">Brand</h4>
                             <div class="fw-brand-check">
                                 <div class="bc-item">
@@ -193,11 +184,9 @@
                                     <a href="" class="primary-btn pd-cart">Add To Cart</a>
                                 </div>
                                 <ul class="pd-tags">
-                                    <li><span>CATEGORIES</span>: Loafer</li>
                                     <li><span>TAGS</span>: August</li>
                                 </ul>
                                 <div class="pd-share">
-                                    <div class="p-code">Sku : 001</div>
                                     <div class="pd-social">
                                         <a href="#"><i class="ti-facebook"></i></a>
                                         <a href="#"><i class="ti-twitter-alt"></i></a>

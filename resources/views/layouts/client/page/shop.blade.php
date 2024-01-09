@@ -23,15 +23,6 @@
                 <div class="col-lg-3 col-md-6 col-sm-8 order-2 order-lg-1 produts-sidebar-filter">
                     <form action="">
                         <div class="filter-widget">
-                            <h4 class="fw-title">Categories</h4>
-                            <ul class="filter-catagories">
-                                <li><a href="">Loafer</a></li>
-                                <li><a href="">Chelsea Boot</a></li>
-                                <li><a href="">Harness Boot</a></li>
-                                <li><a href="">Chunky Boot</a></li>
-                            </ul>
-                        </div>
-                        <div class="filter-widget">
                             <h4 class="fw-title">Brand</h4>
                             <div class="fw-brand-check">
                                 <div class="bc-item">
