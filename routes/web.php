@@ -15,3 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 //#Homepage
 Route::get('/', [App\Http\Controllers\Client\HomepageController::class, 'index']);
+
+//#Authentication
+Route::prefix('/dang-nhap')->group(function () {
+    Route::get('', [App\Http\Controllers\Client\AuthController::class, 'login']);
+    Route::post('', [App\Http\Controllers\Client\AuthController::class, 'checkLogin'])->name('login');
+});
+Route::prefix('/dang-ky')->group(function () {
+    Route::get('', [App\Http\Controllers\Client\AuthController::class, 'register']);
+    Route::post('', [App\Http\Controllers\Client\AuthController::class, 'checkRegister'])->name('register');
+});

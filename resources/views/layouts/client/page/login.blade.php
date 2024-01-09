@@ -25,7 +25,7 @@
             <div class="col-lg-6 offset-lg-3">
                 <div class="login-form">
                     <h2>Login</h2>
-                    <form action="" method="post">
+                    <form action="{{route('login')}}" method="post">
                         @csrf
                         <div class="group-input">
                             <label for="email">Email address *</label>
@@ -48,7 +48,7 @@
                         <button type="submit" class="site-btn login-btn">Sign In</button>
                     </form>
                     <div class="switch-login">
-                        <a href="/account/register" class="or-login">Crete An Account</a>
+                        <a href="/dang-ky" class="or-login">Crete An Account</a>
                     </div>
                 </div>
             </div>

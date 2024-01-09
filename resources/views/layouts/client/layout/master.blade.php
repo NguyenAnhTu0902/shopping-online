@@ -58,8 +58,8 @@
                             {{Auth::user()->name}} - Logout
                         </a>
                     @else --}}
-                        <a style="margin-left: 10px;" href="/account/login" class="login-panel" ><i class="fa fa-user"></i>Login</a>
-                        <a href="/account/register" class="login-panel" ><i class="fa fa-user"></i>Register</a>
+                        <a style="margin-left: 10px;" href="/dang-nhap" class="login-panel" ><i class="fa fa-user"></i>Login</a>
+                        <a href="/dang-ky" class="login-panel" ><i class="fa fa-user"></i>Register</a>
                     {{-- @endif --}}
                     <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width: 300px;">
