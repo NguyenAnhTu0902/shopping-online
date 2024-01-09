@@ -29,4 +29,5 @@ Route::prefix('/dang-ky')->group(function () {
 //Show product
 Route::prefix('/san-pham')->group(function () {
     Route::get('', [App\Http\Controllers\Client\ProductController::class, 'index']);
+    Route::get('/{id}', [App\Http\Controllers\Client\ProductController::class, 'show']);
 });
