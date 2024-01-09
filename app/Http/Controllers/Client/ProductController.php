@@ -16,7 +16,8 @@ class ProductController extends Controller
     }
 
      public function index() {
-         return view('layouts.client.page.shop');
+         $brands = $this->brandService->all();
+         return view('layouts.client.page.shop', compact('brands'));
      }
 
      public function show($id)

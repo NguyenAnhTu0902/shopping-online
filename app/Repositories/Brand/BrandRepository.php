@@ -4,6 +4,7 @@ namespace App\Repositories\Brand;
 
 use App\Models\Brand;
 use App\Repositories\BaseRepository;
+use Database\Seeders\BrandSeeder;
 
 class BrandRepository extends BaseRepository implements BrandRepositoryInterface
 {

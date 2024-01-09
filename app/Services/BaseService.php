@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Constants\CommonConstants;
 use Illuminate\Support\Facades\Auth;
 
 abstract class BaseService
@@ -28,9 +29,9 @@ abstract class BaseService
      * @return mixed
      */
     public function all(
-        $columns = SELECT_ALL,
-        $orderBy = ID,
-        $sortBy = ORDER_ASC
+        $columns = CommonConstants::SELECT_ALL,
+        $orderBy = CommonConstants::ID,
+        $sortBy = CommonConstants::ORDER_ASC
     ) {
         return $this->mainRepository->all($columns, $orderBy, $sortBy);
     }
@@ -98,9 +99,9 @@ abstract class BaseService
 
     public function getAllWithRelationship(
         $relations = [''],
-        $columns = SELECT_ALL,
-        $orderBy = ID,
-        $sortBy = ORDER_ASC
+        $columns = CommonConstants::SELECT_ALL,
+        $orderBy = CommonConstants::ID,
+        $sortBy = CommonConstants::ORDER_ASC
     ) {
         return $this->mainRepository->getAllWithRelationship($relations, $columns, $orderBy, $sortBy);
     }
@@ -108,9 +109,9 @@ abstract class BaseService
     public function findByWithRelationship(
         array $relations,
         array $data,
-        $columns = SELECT_ALL,
-        $orderBy = ID,
-        $sortBy = ORDER_DESC
+        $columns = CommonConstants::SELECT_ALL,
+        $orderBy = CommonConstants::ID,
+        $sortBy = CommonConstants::ORDER_DESC
     ) {
         return $this->mainRepository->findByWithRelationship($relations, $data, $columns, $orderBy, $sortBy);
     }
