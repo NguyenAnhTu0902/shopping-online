@@ -37,7 +37,7 @@
     }
 </style>
 @extends('layouts.client.layout.master')
-@section('titile','Product')
+@section('title','Product')
 @section('content')
     <!-- Breacrumb Section Begin -->
     <div class="breadcrumb-section">

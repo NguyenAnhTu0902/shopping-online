@@ -1,5 +1,5 @@
 @extends('layouts.client.layout.master')
-@section('titile','Login')
+@section('title','Login')
 @section('content')
 
 

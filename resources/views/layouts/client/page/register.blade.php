@@ -1,5 +1,5 @@
 @extends('layouts.client.layout.master')
-@section('titile','Register')
+@section('title','Register')
 @section('content')
 
     <!-- Breacrumb Section Begin -->

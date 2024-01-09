@@ -1,5 +1,5 @@
 @extends('layouts.client.layout.master')
-@section('titile','Home')
+@section('title','Home')
 @section('content')
     <!-- Hero Section Begin -->
     <section class="hero-section">

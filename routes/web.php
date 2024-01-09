@@ -31,3 +31,9 @@ Route::prefix('/san-pham')->group(function () {
     Route::get('', [App\Http\Controllers\Client\ProductController::class, 'index']);
     Route::get('/{id}', [App\Http\Controllers\Client\ProductController::class, 'show']);
 });
+
+//Cart
+//Show product
+Route::prefix('/gio-hang')->group(function () {
+    Route::get('', [App\Http\Controllers\Client\OrderController::class, 'index']);
+});

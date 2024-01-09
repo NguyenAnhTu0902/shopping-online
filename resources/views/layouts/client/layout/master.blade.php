@@ -102,7 +102,7 @@
                                 </a>
                             </li>
                             <li class="cart-icon">
-                                <a href="./cart">
+                                <a href="./gio-hang">
                                     <i class="icon_bag_alt"></i>
                                     <span class="cart-count">2</span>
                                 </a>
