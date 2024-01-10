@@ -29,7 +29,9 @@ class ProductSeeder extends Seeder
                 'discount' => 120,
                 'size' => '30',
                 'tags' => 'Noname',
-                'featured' => true
+                'featured' => true,
+               'created_at' => now(),
+               'updated_at' => now()
            ],
             [
                 'id' => 2,
@@ -41,7 +43,9 @@ class ProductSeeder extends Seeder
                 'discount' => 120,
                 'size' => '30',
                 'tags' => 'Noname',
-                'featured' => true
+                'featured' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id' => 3,
@@ -53,7 +57,9 @@ class ProductSeeder extends Seeder
                 'discount' => 120,
                 'size' => '30',
                 'tags' => 'Noname',
-                'featured' => true
+                'featured' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id' => 4,
@@ -65,7 +71,9 @@ class ProductSeeder extends Seeder
                 'discount' => 120,
                 'size' => '30',
                 'tags' => 'Noname',
-                'featured' => true
+                'featured' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id' => 5,
@@ -77,7 +85,9 @@ class ProductSeeder extends Seeder
                 'discount' => 120,
                 'size' => '30',
                 'tags' => 'Noname',
-                'featured' => true
+                'featured' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id' => 6,
@@ -89,7 +99,9 @@ class ProductSeeder extends Seeder
                 'discount' => 120,
                 'size' => '30',
                 'tags' => 'Noname',
-                'featured' => true
+                'featured' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id' => 7,
@@ -101,7 +113,9 @@ class ProductSeeder extends Seeder
                 'discount' => 120,
                 'size' => '30',
                 'tags' => 'Noname',
-                'featured' => true
+                'featured' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id' => 8,
@@ -113,7 +127,9 @@ class ProductSeeder extends Seeder
                 'discount' => 120,
                 'size' => '30',
                 'tags' => 'Noname',
-                'featured' => true
+                'featured' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         ]);
         Schema::enableForeignKeyConstraints();
