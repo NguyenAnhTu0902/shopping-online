@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('product_id');
             $table->integer('qty');
-            $table->string('size');
+            $table->integer('size');
             $table->softDeletes();
             $table->timestamps();
         });

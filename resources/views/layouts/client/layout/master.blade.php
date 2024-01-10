@@ -102,12 +102,12 @@
                                 </a>
                             </li>
                             <li class="cart-icon">
-                                <a href="./gio-hang">
+                                <a href="./cart">
                                     <i class="icon_bag_alt"></i>
-                                    <span class="cart-count">2</span>
+                                    <span class="cart-count">{{Cart::count()}}</span>
                                 </a>
                             </li>
-                            <li class="cart-price">$20</li>
+                            <li class="cart-price">${{Cart::subtotal()}}</li>
                         </ul>
                     </div>
                 </div>

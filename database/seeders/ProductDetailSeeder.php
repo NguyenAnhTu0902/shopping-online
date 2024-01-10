@@ -22,7 +22,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 1,
                 'product_id' => 1,
-                'size' => '39',
+                'size' => 39,
                 'qty' => 4,
                 'created_at' => now(),
                 'updated_at' => now()
@@ -30,7 +30,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 2,
                 'product_id' => 1,
-                'size' => '40',
+                'size' => 40,
                 'qty' => 4,
                 'created_at' => now(),
                 'updated_at' => now()
@@ -38,7 +38,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 3,
                 'product_id' => 1,
-                'size' => '41',
+                'size' => 41,
                 'qty' => 4,
                 'created_at' => now(),
                 'updated_at' => now()
@@ -46,7 +46,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 4,
                 'product_id' => 2,
-                'size' => '39',
+                'size' => 39,
                 'qty' => 4,
                 'created_at' => now(),
                 'updated_at' => now()
@@ -54,7 +54,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 5,
                 'product_id' => 3,
-                'size' => '39',
+                'size' => 39,
                 'qty' => 4,
                 'created_at' => now(),
                 'updated_at' => now()
@@ -62,7 +62,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 6,
                 'product_id' => 4,
-                'size' => '39',
+                'size' => 39,
                 'qty' => 4,
                 'created_at' => now(),
                 'updated_at' => now()
@@ -70,7 +70,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 7,
                 'product_id' => 5,
-                'size' => '39',
+                'size' => 39,
                 'qty' => 4,
                 'created_at' => now(),
                 'updated_at' => now()
@@ -78,7 +78,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 8,
                 'product_id' => 6,
-                'size' => '39',
+                'size' => 39,
                 'qty' => 4,
                 'created_at' => now(),
                 'updated_at' => now()
@@ -86,7 +86,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 9,
                 'product_id' => 7,
-                'size' => '39',
+                'size' => 39,
                 'qty' => 4,
                 'created_at' => now(),
                 'updated_at' => now()
@@ -94,7 +94,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 10,
                 'product_id' => 8,
-                'size' => '39',
+                'size' => 39,
                 'qty' => 4,
                 'created_at' => now(),
                 'updated_at' => now()

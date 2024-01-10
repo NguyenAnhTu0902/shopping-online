@@ -160,10 +160,10 @@
                                 </div>
                                 <input type="hidden" id="product_id" name="product_id" value="{{$product->id}}">
                                 <div class="quantity">
-                                    <a class="primary-btn pd-cart save-cart">Add To Cart</a>
+                                    <button class="primary-btn pd-cart save-cart">Add To Cart</button>
                                 </div>
                                 <ul class="pd-tags">
-                                    <li><span>TAGS</span>: August</li>
+                                    <li><span>TAGS</span>: {{$product->brand->name}}</li>
                                 </ul>
                                 <div class="pd-share">
                                     <div class="pd-social">
@@ -376,7 +376,54 @@
         $(document).on("click", ".save-cart", function () {
             let id = $('#product_id').val();
             let size = $('input[name="size"]:checked').val();
-
+            addCart(id,size);
         });
+        function addCart(productId, size){
+            $.ajax({
+                type: "GET",
+                url: "gio-hang/them-moi",
+                data: {productId: productId, size: size},
+                success: function (response) {
+                    $('.cart-count').text(response['count']);
+                    var cartHover_tbody = $('.select-items tbody');
+                    var cartHover_existItem = cartHover_tbody.find("tr" + "[data-rowId='" + response['cart'].rowId +"']");
+
+                    if(cartHover_existItem.length) {
+                        cartHover_existItem.find('.product-selected p').text('$' + response['cart'].price + 'x' + response['cart'].qty);
+                    } else {
+                        var newItem =
+                            ' <tr data-rowId = "'+ response['cart'].rowId +'">\n' +
+                            ' <td class="si-pic"><img style="..." src=""></td>\n' +
+                            ' <td class="si-text">\n' +
+                            ' <div class="product-selected">\n' +
+                            ' <p>$'+ response['cart'].price+ 'x' + response['cart'].qty +'</p>\n' +
+                            ' <h6>'+ response['cart'].name +'</h6>\n' +
+                            ' </div>\n' +
+                            ' </td>\n' +
+                            ' <td class="si-close">\n' +
+                            ' <i onclick="removeCart(\'' + response['cart'].rowId +'\')" class="ti-close"></i>\n' +
+                            ' </td>\n' +
+                            ' </tr>';
+
+                        cartHover_tbody.append(newItem);
+                    }
+
+                    // alert('Add successfully!\nProduct: ' + response['cart'].name)
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Add successfully!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    console.log(response);
+                },
+                error: function (response) {
+                    alert('Add failed');
+                    console.log(response);
+                },
+            });
+        }
+
     </script>
 @endpush

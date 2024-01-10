@@ -35,5 +35,6 @@ Route::prefix('/san-pham')->group(function () {
 //Cart
 //Show product
 Route::prefix('/gio-hang')->group(function () {
-    Route::get('', [App\Http\Controllers\Client\OrderController::class, 'index']);
+    Route::get('', [App\Http\Controllers\Client\CartController::class, 'index']);
+    Route::get('/them-moi', [App\Http\Controllers\Client\CartController::class, 'addCart']);
 });
