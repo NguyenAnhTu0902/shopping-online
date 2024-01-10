@@ -130,30 +130,26 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="product-pic-zoom">
-                                <img class="product-big-img" src="front/img/products/loafer-1.png" alt="">
+                                <img class="product-big-img" src="front/img/products/{{$product->productImages[0]->path}}" alt="">
                                 <div class="zoom-icon">
                                     <i class="fa fa-search-plus"></i>
                                 </div>
                             </div>
                             <div class="product-thumbs">
                                 <div class="product-thumbs-track ps-slider owl-carousel">
-                                    <div class="pt active" data-imgbigurl="front/img/products/loafer-1.png">
-                                        <img src="front/img/products/loafer-1.png" alt="">
-                                    </div>
-                                    <div class="pt active" data-imgbigurl="front/img/products/loafer-2.png">
-                                        <img src="front/img/products/loafer-2.png" alt="">
-                                    </div>
-                                    <div class="pt active" data-imgbigurl="front/img/products/loafer-3.png">
-                                        <img src="front/img/products/loafer-3.png" alt="">
-                                    </div>
+                                    @foreach($product->productImages as $productImage)
+                                        <div class="pt active" data-imgbigurl="front/img/products/{{$productImage->path}}">
+                                            <img src="front/img/products/{{$productImage->path}}" alt="">
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="product-details">
                                 <div class="pd-title">
-                                    <span>Loafer</span>
-                                    <h3>Loafer S202</h3>
+                                    <span>{{$product->brand->name}}</span>
+                                    <h3>{{$product->name}}</h3>
                                     <a href="#" class="heart-icon">
                                         <i class="icon_heart_alt"></i>
                                     </a>
@@ -163,8 +159,8 @@
                                     <span>1</span>
                                 </div>
                                 <div class="pd-desc">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pellentesque enim odio, vel suscipit sapien vulputate et. In tincidunt urna in dui malesuada, quis porta felis iaculis. Donec fermentum posuere metus, et convallis est commodo vitae. Maecenas venenatis fermentum ultricies.</p>
-                                    <h4>$150 <span>$120</span></h4>
+                                    <p>{{$product->description}}</p>
+                                    <h4>{{$product->price}} <span>{{$product->discount}}</span></h4>
                                 </div>
                                 <div class="pd-size-choose">
                                     <div class="sc-item">

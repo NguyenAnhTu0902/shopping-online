@@ -26,6 +26,7 @@ class ProductController extends Controller
 
      public function show($id)
      {
-         return view('layouts.client.page.product');
+         $product = $this->productService->findOneOrFail($id);
+         return view('layouts.client.page.product', compact('product'));
      }
 }

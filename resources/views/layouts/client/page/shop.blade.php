@@ -86,14 +86,14 @@
                                 <div class="col-lg-4 col-sm-6">
                                     <div class="product-item">
                                         <div class="pi-pic">
-                                            <img src="front/img/products/{{$product->productImage[0]->path}}" alt="">
+                                            <img src="front/img/products/{{$product->productImages[0]->path}}" alt="">
                                             <div class="sale pp-sale">Sale</div>
                                             <div class="icon">
                                                 <i class="icon_heart_alt"></i>
                                             </div>
                                             <ul>
                                                 <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                                <li class="quick-view"><a href="">+ Quick View</a></li>
+                                                <li class="quick-view"><a href="/san-pham/{{$product->id}}">+ Quick View</a></li>
                                                 <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                             </ul>
                                         </div>
