@@ -22,6 +22,8 @@ use App\Repositories\Permission\PermissionRepository;
 use App\Repositories\Permission\PermissionRepositoryInterface;
 use App\Repositories\Product\ProductRepository;
 use App\Repositories\Product\ProductRepositoryInterface;
+use App\Repositories\ProductDetail\ProductDetailRepository;
+use App\Repositories\ProductDetail\ProductDetailRepositoryInterface;
 use App\Repositories\ProductImage\ProductImageRepository;
 use App\Repositories\ProductImage\ProductImageRepositoryInterface;
 use App\Repositories\Role\RoleRepository;
@@ -43,6 +45,7 @@ class RepositoryServiceProvider extends ServiceProvider
         BrandRepositoryInterface::class => BrandRepository::class,
         ProductRepositoryInterface::class => ProductRepository::class,
         ProductImageRepositoryInterface::class => ProductImageRepository::class,
+        ProductDetailRepositoryInterface::class => ProductDetailRepository::class,
     ];
 
     /**
