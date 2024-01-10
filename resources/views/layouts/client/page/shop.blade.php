@@ -82,214 +82,34 @@
                     </div>
                     <div class="product-list">
                         <div class="row">
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="front/img/products/loafer-1.png" alt="">
-                                        <div class="sale pp-sale">Sale</div>
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
+                            @foreach($products as $product)
+                                <div class="col-lg-4 col-sm-6">
+                                    <div class="product-item">
+                                        <div class="pi-pic">
+                                            <img src="front/img/products/{{$product->productImage[0]->path}}" alt="">
+                                            <div class="sale pp-sale">Sale</div>
+                                            <div class="icon">
+                                                <i class="icon_heart_alt"></i>
+                                            </div>
+                                            <ul>
+                                                <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
+                                                <li class="quick-view"><a href="">+ Quick View</a></li>
+                                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                            </ul>
                                         </div>
-                                        <ul>
-                                            <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a href="">+ Quick View</a></li>
-                                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">Loafer</div>
-                                        <a href="">
-                                            <h5>Loafer S202</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            $120
-                                            <span>150</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="front/img/products/loafer-2.png" alt="">
-                                        <div class="sale pp-sale">Sale</div>
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
-                                        </div>
-                                        <ul>
-                                            <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a href="">+ Quick View</a></li>
-                                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">Loafer</div>
-                                        <a href="">
-                                            <h5>Loafer S203</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            $120
-                                            <span>150</span>
+                                        <div class="pi-text">
+                                            <div class="catagory-name">{{$product->tag}}</div>
+                                            <a href="">
+                                                <h5>{{$product->name}}</h5>
+                                            </a>
+                                            <div class="product-price">
+                                                ${{$product->discount}}
+                                                <span>{{$product->price}}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="front/img/products/loafer-3.png" alt="">
-                                        <div class="sale pp-sale">Sale</div>
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
-                                        </div>
-                                        <ul>
-                                            <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a href="">+ Quick View</a></li>
-                                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">Loafer</div>
-                                        <a href="">
-                                            <h5>Loafer S203</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            $120
-                                            <span>150</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="front/img/products/loafer-4.png" alt="">
-                                        <div class="sale pp-sale">Sale</div>
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
-                                        </div>
-                                        <ul>
-                                            <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a href="">+ Quick View</a></li>
-                                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">Loafer</div>
-                                        <a href="">
-                                            <h5>Loafer S204</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            $120
-                                            <span>150</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="front/img/products/boot-1.png" alt="">
-                                        <div class="sale pp-sale">Sale</div>
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
-                                        </div>
-                                        <ul>
-                                            <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a href="">+ Quick View</a></li>
-                                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">Chelsea Boot</div>
-                                        <a href="">
-                                            <h5>Boot S201</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            $120
-                                            <span>150</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="front/img/products/boot-2.png" alt="">
-                                        <div class="sale pp-sale">Sale</div>
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
-                                        </div>
-                                        <ul>
-                                            <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a href="">+ Quick View</a></li>
-                                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">Chelsea Boot</div>
-                                        <a href="">
-                                            <h5>Boot S202</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            $120
-                                            <span>150</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="front/img/products/boot-3.png" alt="">
-                                        <div class="sale pp-sale">Sale</div>
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
-                                        </div>
-                                        <ul>
-                                            <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a href="">+ Quick View</a></li>
-                                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">Chelsea Boot</div>
-                                        <a href="">l
-                                            <h5>Boot S202</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            $120
-                                            <span>150</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="front/img/products/boot-4.png" alt="">
-                                        <div class="sale pp-sale">Sale</div>
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
-                                        </div>
-                                        <ul>
-                                            <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a href="">+ Quick View</a></li>
-                                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">Chelsea Boot</div>
-                                        <a href="">l
-                                            <h5>Boot S204</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            $120
-                                            <span>150</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
