@@ -271,6 +271,7 @@
     <script src=" front/js/main.js"></script>
     <script src=" front/js/owlcarousel2-filter.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @stack('scripts')
 </body>
 
 </html>

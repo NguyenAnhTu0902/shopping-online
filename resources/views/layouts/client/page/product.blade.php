@@ -112,18 +112,6 @@
                             </div>
                             <button type="submit" class="filter-btn">Filter</button>
                         </div>
-                        <div class="filter-widget">
-                            <h4 class="fw-title">Tags</h4>
-                            <div class="fw-tags">
-                                <a href="#">Towel</a>
-                                <a href="#">Shoes</a>
-                                <a href="#">Coat</a>
-                                <a href="#">Dresses</a>
-                                <a href="#">Trousers</a>
-                                <a href="#">Men's hats</a>
-                                <a href="#">Blackpack</a>
-                            </div>
-                        </div>
                     </form>
                 </div>
                 <div class="col-lg-9">
@@ -163,21 +151,16 @@
                                     <h4>{{$product->price}} <span>{{$product->discount}}</span></h4>
                                 </div>
                                 <div class="pd-size-choose">
-                                    <div class="sc-item">
-                                        <input type="radio" id="sm-l">
-                                        <label for="sm-l">L</label>
-                                    </div>
-                                    <div class="sc-item">
-                                        <input type="radio" id="sm-xl">
-                                        <label for="sm-xl">XL</label>
-                                    </div>
-                                    <div class="sc-item">
-                                        <input type="radio" id="sm-m">
-                                        <label for="sm-m">M</label>
-                                    </div>
+                                    @foreach(array_unique(array_column($product->productDetails->toArray(),'size')) as $productSize)
+                                        <div class="sc-item">
+                                            <input type="radio" id="sm-{{$productSize}}" value="{{$productSize}}" name="size">
+                                            <label for="sm-{{$productSize}}">{{$productSize}}</label>
+                                        </div>
+                                    @endforeach
                                 </div>
+                                <input type="hidden" id="product_id" name="product_id" value="{{$product->id}}">
                                 <div class="quantity">
-                                    <a href="" class="primary-btn pd-cart">Add To Cart</a>
+                                    <a class="primary-btn pd-cart save-cart">Add To Cart</a>
                                 </div>
                                 <ul class="pd-tags">
                                     <li><span>TAGS</span>: August</li>
@@ -388,3 +371,12 @@
     <!-- Related Products Section End -->
 
 @endsection
+@push('scripts')
+    <script>
+        $(document).on("click", ".save-cart", function () {
+            let id = $('#product_id').val();
+            let size = $('input[name="size"]:checked').val();
+
+        });
+    </script>
+@endpush
