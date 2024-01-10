@@ -407,19 +407,17 @@
 
                         cartHover_tbody.append(newItem);
                     }
-
-                    // alert('Add successfully!\nProduct: ' + response['cart'].name)
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
                         title: 'Add successfully!',
                         showConfirmButton: false,
-                        timer: 1500
+                        timer: 1000
                     })
                     console.log(response);
                 },
                 error: function (response) {
-                    alert('Add failed');
+                    Swal.fire("Please choose size!");
                     console.log(response);
                 },
             });
