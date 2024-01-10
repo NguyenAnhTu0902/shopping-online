@@ -22,6 +22,8 @@ use App\Repositories\Permission\PermissionRepository;
 use App\Repositories\Permission\PermissionRepositoryInterface;
 use App\Repositories\Product\ProductRepository;
 use App\Repositories\Product\ProductRepositoryInterface;
+use App\Repositories\ProductImage\ProductImageRepository;
+use App\Repositories\ProductImage\ProductImageRepositoryInterface;
 use App\Repositories\Role\RoleRepository;
 use App\Repositories\Role\RoleRepositoryInterface;
 use App\Repositories\User\UserRepository;
@@ -40,6 +42,7 @@ class RepositoryServiceProvider extends ServiceProvider
     public array $singletons = [
         BrandRepositoryInterface::class => BrandRepository::class,
         ProductRepositoryInterface::class => ProductRepository::class,
+        ProductImageRepositoryInterface::class => ProductImageRepository::class,
     ];
 
     /**

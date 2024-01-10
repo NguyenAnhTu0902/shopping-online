@@ -25,34 +25,15 @@
                         <div class="filter-widget">
                             <h4 class="fw-title">Brand</h4>
                             <div class="fw-brand-check">
-                                <div class="bc-item">
-                                    <label for="bc-1">
-                                        August
-                                        <input type="checkbox" id="bc-1" name="1">
-                                        <span class="checkmark "></span>
-                                    </label>
-                                </div>
-                                <div class="bc-item">
-                                    <label for="bc-2">
-                                        The Wolf
-                                        <input type="checkbox" id="bc-2" name="2">
-                                        <span class="checkmark "></span>
-                                    </label>
-                                </div>
-                                <div class="bc-item">
-                                    <label for="bc-3">
-                                        Dior
-                                        <input type="checkbox" id="bc-3" name="3">
-                                        <span class="checkmark "></span>
-                                    </label>
-                                </div>
-                                <div class="bc-item">
-                                    <label for="bc-4">
-                                        Channel
-                                        <input type="checkbox" id="bc-4" name="4">
-                                        <span class="checkmark "></span>
-                                    </label>
-                                </div>
+                                @foreach($brands as $brand)
+                                    <div class="bc-item">
+                                        <label for="bc-{{$brand->id}}">
+                                            {{$brand->name}}
+                                            <input type="checkbox" id="bc-{{$brand->id}}" name="brand">
+                                            <span class="checkmark "></span>
+                                        </label>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                         <div class="filter-widget">
@@ -72,18 +53,6 @@
                                 </div>
                             </div>
                             <button type="submit" class="filter-btn">Filter</button>
-                        </div>
-                        <div class="filter-widget">
-                            <h4 class="fw-title">Tags</h4>
-                            <div class="fw-tags">
-                                <a href="#">Towel</a>
-                                <a href="#">Shoes</a>
-                                <a href="#">Coat</a>
-                                <a href="#">Dresses</a>
-                                <a href="#">Trousers</a>
-                                <a href="#">Men's hats</a>
-                                <a href="#">Blackpack</a>
-                            </div>
                         </div>
                     </form>
                 </div>
