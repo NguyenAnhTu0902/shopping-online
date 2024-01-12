@@ -6,6 +6,8 @@ use App\Repositories\Auth\AuthRepository;
 use App\Repositories\Auth\AuthRepositoryInterface;
 use App\Repositories\Brand\BrandRepository;
 use App\Repositories\Brand\BrandRepositoryInterface;
+use App\Repositories\Category\CategoryRepository;
+use App\Repositories\Category\CategoryRepositoryInterface;
 use App\Repositories\DesignatedServiceOfMedicalSession\DSMedSessionRepository;
 use App\Repositories\DesignatedServiceOfMedicalSession\DSMedSessionRepositoryInterface;
 use App\Repositories\DesignatedServiceType\DesignatedServiceTypeRepository;
@@ -46,6 +48,7 @@ class RepositoryServiceProvider extends ServiceProvider
         ProductRepositoryInterface::class => ProductRepository::class,
         ProductImageRepositoryInterface::class => ProductImageRepository::class,
         ProductDetailRepositoryInterface::class => ProductDetailRepository::class,
+        CategoryRepositoryInterface::class => CategoryRepository::class,
     ];
 
     /**

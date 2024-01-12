@@ -163,7 +163,7 @@
                                     <button class="primary-btn pd-cart save-cart">Add To Cart</button>
                                 </div>
                                 <ul class="pd-tags">
-                                    <li><span>TAGS</span>: {{$product->brand->name}}</li>
+                                    <li><span>CATEGORIES</span>: {{$product->category->name}}</li>
                                 </ul>
                                 <div class="pd-share">
                                     <div class="pd-social">
