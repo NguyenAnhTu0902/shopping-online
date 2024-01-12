@@ -181,6 +181,7 @@
 	var rangeSlider = $(".price-range"),
 		minamount = $("#minamount"),
 		maxamount = $("#maxamount"),
+        //sử dụng rangeSlider
 		minPrice = rangeSlider.data('min'),
 		maxPrice = rangeSlider.data('max'),
         minValue = rangeSlider.data('min-value') !== '' ? rangeSlider.data('min-value') : minPrice,

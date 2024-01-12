@@ -21,12 +21,14 @@ class ProductController extends Controller
      public function index(Request $request) {
          $brands = $this->brandService->all();
          $products = $this->productService->getProductOnIndex($request);
-         return view('layouts.client.page.shop', compact('products', 'brands'));
+         $search = $request->search;
+         return view('layouts.client.page.shop', compact('products', 'brands', 'search'));
      }
 
      public function show($id)
      {
+         $brands = $this->brandService->all();
          $product = $this->productService->findOneOrFail($id);
-         return view('layouts.client.page.product', compact('product'));
+         return view('layouts.client.page.product', compact('product', 'brands'));
      }
 }

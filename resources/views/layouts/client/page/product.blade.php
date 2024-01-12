@@ -60,59 +60,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    <form action="">
-                        <div class="filter-widget">
-                            <h4 class="fw-title">Brand</h4>
-                            <div class="fw-brand-check">
-                                <div class="bc-item">
-                                    <label for="bc-1">
-                                        August
-                                        <input type="checkbox" id="bc-1" name="1">
-                                        <span class="checkmark "></span>
-                                    </label>
-                                </div>
-                                <div class="bc-item">
-                                    <label for="bc-2">
-                                        The Wolf
-                                        <input type="checkbox" id="bc-2" name="2">
-                                        <span class="checkmark "></span>
-                                    </label>
-                                </div>
-                                <div class="bc-item">
-                                    <label for="bc-3">
-                                        Dior
-                                        <input type="checkbox" id="bc-3" name="3">
-                                        <span class="checkmark "></span>
-                                    </label>
-                                </div>
-                                <div class="bc-item">
-                                    <label for="bc-4">
-                                        Channel
-                                        <input type="checkbox" id="bc-4" name="4">
-                                        <span class="checkmark "></span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="filter-widget">
-                            <h4 class="fw-title">Price</h4>
-                            <div class="filter-range-wrap">
-                                <div class="range-slider">
-                                    <div class="price-input">
-                                        <input type="text" id="minamount" name="price_min">
-                                        <input type="text" id="maxamount" name="price_max">
-                                    </div>
-                                </div>
-                                <div class="price-range ui-slide ui-corner-all ui-slide-horizontal ui-widget ui-widget-content"
-                                     data-min ="0" data-max="1000" data-min-value="" data-max-value="">
-                                    <div class="ui-slide-range ui-corner-all ui-widget-header"></div>
-                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                                </div>
-                            </div>
-                            <button type="submit" class="filter-btn">Filter</button>
-                        </div>
-                    </form>
+                    @include('layouts.client.page.filter')
                 </div>
                 <div class="col-lg-9">
                     <div class="row">
