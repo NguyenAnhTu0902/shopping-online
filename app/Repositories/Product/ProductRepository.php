@@ -24,6 +24,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
             })
             ->get();
         $products = $this->filter($products, $request);
+        $products = $this->sortAndPagination($products,$request);
         return $products;
     }
     private function filter($products, Request $request)
@@ -41,6 +42,41 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         $products = ($priceMin != null && $priceMax != null)
             ? $products->whereBetween('discount', [$priceMin, $priceMax])
             : $products;
+        return $products;
+    }
+
+    private function sortAndPagination($products, Request $request)
+    {
+        $perPage = $request->show ?? 9 ;
+        $sortBy = $request->sort_by ?? 'latest';
+
+        switch ($sortBy)
+        {
+            case 'latest':
+                $products = $products->sortBy('id');
+                break;
+            case 'oldest':
+                $products = $products -> orderBy('id', 'desc');
+                break;
+            case 'name-ascending':
+                $products = $products -> orderBy('name');
+                break;
+            case 'name-descending':
+                $products = $products -> orderBy('name', 'desc');
+                break;
+            case 'price-ascending':
+                $products = $products -> orderBy('price');
+                break;
+            case 'price-descending':
+                $products = $products -> orderBy('price', 'desc');
+                break;
+            default:
+                $products = $products -> orderBy('id');
+        };
+        $products = Product::query()
+            ->paginate($perPage)
+            ->appends(['sort_by' => $sortBy, 'show' => $perPage]);
+
         return $products;
     }
 }

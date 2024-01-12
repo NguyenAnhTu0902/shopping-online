@@ -7,9 +7,16 @@
                     <label for="bc-{{$brand->id}}">
                         {{$brand->name}}
                         <input type="checkbox"
-                               {{(request("brand")[$brand->id] ?? '') == 'on' ? 'checked' : ''}}
+                               @if($dataSearch)
+                                   {{$brand}}
+                               {{($brandChoose[$brand->id] ?? '') == 'on' ? 'checked' : ''}}
                                id="bc-{{$brand->id}}"
                                name="brand[{{$brand->id}}]">
+                               @else
+                                {{(request("brand")[$brand->id] ?? '') == 'on' ? 'checked' : ''}}
+                                id="bc-{{$brand->id}}"
+                                name="brand[{{$brand->id}}]">
+                               @endif
                         <span class="checkmark "></span>
                     </label>
                 </div>
@@ -27,14 +34,23 @@
             </div>
             <div class="price-range ui-slide ui-corner-all ui-slide-horizontal ui-widget ui-widget-content"
                  data-min ="0" data-max="1000"
+                 @if($dataSearch)
+                     data-min-value="{{str_replace('$', '', $price_min)}}"
+                     data-max-value="{{str_replace('$', '', $price_max)}}">
+                 @else
                  data-min-value="{{str_replace('$', '', request('price_min'))}}"
                  data-max-value="{{str_replace('$', '', request('price_max'))}}">
+                @endif
                 <div class="ui-slide-range ui-corner-all ui-widget-header"></div>
                 <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
                 <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
             </div>
         </div>
-        <input type="hidden" name="search" value="{{$search ?? ''}}">
+        <input type="hidden" name="search"
+               @if($dataSearch)
+                   value="{{$search}}"
+               @endif
+               value="">
         <button type="submit" class="filter-btn">Filter</button>
     </div>
 </form>
