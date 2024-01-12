@@ -92,14 +92,16 @@
                         @foreach($featured['loafer'] as $product)
                             <div class="product-item item {{$product->brand->name}}">
                                 <div class="pi-pic">
-                                    <img src="front/img/products/{{$product->productImages[0]->path}}" alt="">
+                                    <a href="/san-pham/{{$product->id}}">
+                                        <img src="front/img/products/{{$product->productImages[0]->path}}" alt="">
+                                    </a>
                                     <div class="sale">Sale</div>
                                     <div class="icon">
                                         <i class="icon_heart_alt"></i>
                                     </div>
                                     <ul>
-                                        <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                        <li class="quick-view"><a href="">Quick View</a></li>
+                                        <li class="w-icon active"><a href="/san-pham/{{$product->id}}"><i class="fa fa-search"></i></a></li>
+                                        <li class="quick-view"><a href="/san-pham/{{$product->id}}">Quick View</a></li>
                                         <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
                                     </ul>
                                 </div>
@@ -108,12 +110,14 @@
                                     <a href="">
                                         <h5>{{$product->name}}</h5>
                                     </a>
-                                    @if($product->discount != null)
-                                        ${{$product->price}}
-                                        <span>${{$product->discount}}</span>
-                                    @else
-                                        ${{$product->price}}
-                                    @endif
+                                    <div class="product-price">
+                                        @if($product->discount != null)
+                                            ${{$product->discount}}
+                                            <span>${{$product->price}}</span>
+                                        @else
+                                            ${{$product->price}}
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
@@ -178,14 +182,16 @@
                         @foreach($featured['boot'] as $product)
                             <div class="product-item item {{$product->brand->name}}">
                                 <div class="pi-pic">
-                                    <img src="front/img/products/{{$product->productImages[0]->path}}" alt="">
+                                    <a href="/san-pham/{{$product->id}}">
+                                        <img src="front/img/products/{{$product->productImages[0]->path}}" alt="">
+                                    </a>
                                     <div class="sale">Sale</div>
                                     <div class="icon">
                                         <i class="icon_heart_alt"></i>
                                     </div>
                                     <ul>
-                                        <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                        <li class="quick-view"><a href="">Quick View</a></li>
+                                        <li class="w-icon active"><a href="/san-pham/{{$product->id}}"><i class="fa fa-search"></i></a></li>
+                                        <li class="quick-view"><a href="/san-pham/{{$product->id}}">Quick View</a></li>
                                         <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
                                     </ul>
                                 </div>
@@ -196,8 +202,8 @@
                                     </a>
                                     <div class="product-price">
                                         @if($product->discount != null)
-                                            ${{$product->price}}
-                                            <span>${{$product->discount}}</span>
+                                            ${{$product->discount}}
+                                            <span>${{$product->price}}</span>
                                         @else
                                             ${{$product->price}}
                                         @endif
