@@ -427,39 +427,6 @@ ol {
 	border: 1px solid #ebebeb;
 }
 
-.inner-header .advanced-search .category-btn {
-	max-width: 30%;
-	float: left;
-	background: transparent;
-	border: none;
-	padding-left: 23px;
-	padding-top: 11px;
-	padding-bottom: 13px;
-	padding-right: 60px;
-	font-size: 16px;
-	color: #252525;
-	position: relative;
-}
-
-.inner-header .advanced-search .category-btn:before {
-	position: absolute;
-	right: 0;
-	top: 14px;
-	width: 1px;
-	height: 20px;
-	background: #e5e5e5;
-	content: "";
-}
-
-.inner-header .advanced-search .category-btn:after {
-	position: absolute;
-	right: 11px;
-	top: 10px;
-	content: "3";
-	font-family: "ElegantIcons";
-	font-size: 16px;
-	color: #b2b2b2;
-}
 
 .inner-header .advanced-search .input-group {
 	max-width: 70%;
@@ -3907,7 +3874,7 @@ ol {
 
 @media only screen and (min-width: 1200px) and (max-width: 1920px) {
 	.inner-header .advanced-search .input-group button {
-		right: -14px;
+		right: -195px;
 	}
 	.product-item .pi-pic ul li a {
 		padding: 16px 12px 12px 11px;
@@ -3926,9 +3893,6 @@ ol {
 /* Medium Device: 1200px */
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-	.inner-header .advanced-search .category-btn {
-		max-width: 36%;
-	}
 	.inner-header .advanced-search .input-group {
 		max-width: 64%;
 	}
@@ -4034,10 +3998,6 @@ ol {
 	.header-top .ht-right .top-social a {
 		margin-left: 10px;
 	}
-	.inner-header .advanced-search .category-btn {
-		max-width: 40%;
-		padding-right: 25px;
-	}
 	.inner-header .advanced-search .input-group {
 		max-width: 60%;
 	}
@@ -4101,9 +4061,6 @@ ol {
 	.header-top .ht-right .lan-selector {
 		margin-top: 5px;
 		margin-bottom: 5px;
-	}
-	.inner-header .advanced-search .category-btn {
-		display: none;
 	}
 	.inner-header .advanced-search .input-group {
 		max-width: 100%;
@@ -4250,9 +4207,6 @@ ol {
 @media only screen and (max-width: 479px) {
 	.instagram-photo .insta-item {
 		width: 100%;
-	}
-	.inner-header .advanced-search .category-btn {
-		display: none;
 	}
 	.inner-header .advanced-search .input-group {
 		max-width: 100%;

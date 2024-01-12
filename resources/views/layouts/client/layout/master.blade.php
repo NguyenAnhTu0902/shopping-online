@@ -84,15 +84,7 @@
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-7">
-                        <form action="san-pham">
-                            <div class="advanced-search">
-                                <button type="button" class="category-btn">Products</button>
-                                <div class="input-group">
-                                    <input  name="search" type="text" value="{{request('search')}}" placeholder="What do you need?">
-                                    <button type="submit"><i class="ti-search"></i></button>
-                                </div>
-                            </div>
-                        </form>
+                        @include('layouts.client.page.search')
                     </div>
                     <div class="col-lg-3 col-md-3 text-right">
                         <ul class="nav-right">
