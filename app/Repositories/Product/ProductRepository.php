@@ -16,7 +16,12 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     public function getProductOnIndex($request)
     {
         $search = $request->search ?? '';
-        $products = $this->model->where('name', CommonConstants::OPERATOR_LIKE, "%{$search}%")->get();
+        $products = $this->model
+            ->where(function ($query) use ($search) {
+                $query->where('name', CommonConstants::OPERATOR_LIKE, '%' . $search . '%')
+                    ->orWhere('description', CommonConstants::OPERATOR_LIKE, '%' . $search . '%');
+            })
+            ->get();
         return $products;
     }
 }
