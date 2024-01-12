@@ -148,7 +148,7 @@
                                 </div>
                                 <div class="pd-desc">
                                     <p>{{$product->description}}</p>
-                                    <h4>{{$product->price}} <span>{{$product->discount}}</span></h4>
+                                    <h4>{{$product->discount}} <span>{{$product->price}}</span></h4>
                                 </div>
                                 <div class="pd-size-choose">
                                     @foreach(array_unique(array_column($product->productDetails->toArray(),'size')) as $productSize)
@@ -385,28 +385,7 @@
                 data: {productId: productId, size: size},
                 success: function (response) {
                     $('.cart-count').text(response['count']);
-                    var cartHover_tbody = $('.select-items tbody');
-                    var cartHover_existItem = cartHover_tbody.find("tr" + "[data-rowId='" + response['cart'].rowId +"']");
-
-                    if(cartHover_existItem.length) {
-                        cartHover_existItem.find('.product-selected p').text('$' + response['cart'].price + 'x' + response['cart'].qty);
-                    } else {
-                        var newItem =
-                            ' <tr data-rowId = "'+ response['cart'].rowId +'">\n' +
-                            ' <td class="si-pic"><img style="..." src=""></td>\n' +
-                            ' <td class="si-text">\n' +
-                            ' <div class="product-selected">\n' +
-                            ' <p>$'+ response['cart'].price+ 'x' + response['cart'].qty +'</p>\n' +
-                            ' <h6>'+ response['cart'].name +'</h6>\n' +
-                            ' </div>\n' +
-                            ' </td>\n' +
-                            ' <td class="si-close">\n' +
-                            ' <i onclick="removeCart(\'' + response['cart'].rowId +'\')" class="ti-close"></i>\n' +
-                            ' </td>\n' +
-                            ' </tr>';
-
-                        cartHover_tbody.append(newItem);
-                    }
+                    $('.cart-price').text('$' + response['subtotal']);
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
@@ -418,7 +397,6 @@
                 },
                 error: function (response) {
                     Swal.fire("Please choose size!");
-                    console.log(response);
                 },
             });
         }

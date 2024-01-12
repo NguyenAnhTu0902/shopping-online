@@ -16,7 +16,6 @@
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Total</th>
-                                <th><i class="ti-close"></i></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -71,3 +70,48 @@
 
 
 @endsection
+@push('scripts')
+    <script>
+        function removeCart(rowId) {
+            $.ajax({
+                type: "GET",
+                url: "gio-hang/xoa",
+                data: {rowId: rowId},
+                success: function (response) {
+                    var cart_tbody = $('.cart-table tbody');
+                    var cart_existItem = cart_tbody.find("tr" + "[data-rowid='" + rowId +"']");
+                    cart_existItem.remove();
+                    $('.cart-total span').text('$' + response['subtotal']);
+                    $('.cart-price').text('$' + response['subtotal']);
+                    alert('Delete successfully!\nProduct: ' + response['cart'].name);
+                },
+                error: function (response) {
+                    alert('Delete failed');
+                },
+            });
+        }
+        function updateCart(rowId, qty) {
+            $.ajax({
+                url: 'gio-hang/chinh-sua',
+                type: 'GET',
+                data: {rowId: rowId, qty: qty},
+                success: function (response) {
+                    var cart_tbody = $('.cart-table tbody');
+                    var cart_existItem = cart_tbody.find("tr" + "[data-rowId='" + rowId +"']");
+                    if(qty == 0) {
+                        cart_existItem.remove();
+                    }else {
+                        cart_existItem.find('.total-price').text('$' + response['cart'].price * response['cart'].qty);
+                    }
+                    $('.cart-total span').text('$' + response['subtotal']);
+                    $('.cart-price').text('$' + response['subtotal']);
+                    $('.cart-count').text(response['count']);
+                },
+                error:function (response) {
+                    alert('Update failed.');
+                },
+            });
+        }
+    </script>
+@endpush
+
