@@ -79,9 +79,6 @@ interface BaseRepositoryInterface
     public function findByWithRelationship(
         array $relations,
         array $data,
-        $columns,
-        $orderBy,
-        $sortBy
     );
 
     public function getAllWithRelationship(

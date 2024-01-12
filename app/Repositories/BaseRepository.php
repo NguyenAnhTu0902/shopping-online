@@ -167,11 +167,8 @@ abstract class BaseRepository
     public function findByWithRelationship(
         array $relations,
         array $data,
-        $columns,
-        $orderBy,
-        $sortBy
     ) {
-        return $this->model->with($relations)->where($data)->orderBy($orderBy, $sortBy)->get($columns);
+        return $this->model->with($relations)->where($data)->get();
     }
 
     public function whereIn($column, array $data, $relations)

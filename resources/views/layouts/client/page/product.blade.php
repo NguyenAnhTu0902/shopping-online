@@ -371,35 +371,3 @@
     <!-- Related Products Section End -->
 
 @endsection
-@push('scripts')
-    <script>
-        $(document).on("click", ".save-cart", function () {
-            let id = $('#product_id').val();
-            let size = $('input[name="size"]:checked').val();
-            addCart(id,size);
-        });
-        function addCart(productId, size){
-            $.ajax({
-                type: "GET",
-                url: "gio-hang/them-moi",
-                data: {productId: productId, size: size},
-                success: function (response) {
-                    $('.cart-count').text(response['count']);
-                    $('.cart-price').text('$' + response['subtotal']);
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Add successfully!',
-                        showConfirmButton: false,
-                        timer: 1000
-                    })
-                    console.log(response);
-                },
-                error: function (response) {
-                    Swal.fire("Please choose size!");
-                },
-            });
-        }
-
-    </script>
-@endpush

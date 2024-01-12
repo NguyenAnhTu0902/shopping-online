@@ -256,8 +256,8 @@
     /*-------------------
 		Bộ lọc sản phẩm ở trang chủ
 	--------------------- */
-    const product_men = $(".product-slider.men");
-    const product_women = $(".product-slider.women");
+    const product_loafer = $(".product-slider.loafer");
+    const product_boot = $(".product-slider.boot");
 
     $('.filter-control').on('click', '.item', function (){
         const $item = $(this);
@@ -267,12 +267,81 @@
         $item.siblings().removeClass('active');
         $item.addClass('active');
 
-        if(category === 'men') {
-            product_men.owlcarousel2_filter(filter);
+        if(category === 'loafer') {
+            product_loafer.owlcarousel2_filter(filter);
         }
 
-        if(category === 'women') {
-            product_women.owlcarousel2_filter(filter);
+        if(category === 'boot') {
+            product_boot.owlcarousel2_filter(filter);
         }
     })
 })(jQuery);
+
+    $(document).on("click", ".save-cart", function () {
+        let id = $('#product_id').val();
+        let size = $('input[name="size"]:checked').val();
+        addCart(id,size);
+    });
+    function addCart(productId, size){
+        $.ajax({
+            type: "GET",
+            url: "gio-hang/them-moi",
+            data: {productId: productId, size: size},
+            success: function (response) {
+                $('.cart-count').text(response['count']);
+                $('.cart-price').text('$' + response['subtotal']);
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Add successfully!',
+                    showConfirmButton: false,
+                    timer: 1000
+                })
+                console.log(response);
+            },
+            error: function (response) {
+                Swal.fire("Please choose size!");
+            },
+        });
+    }
+    function removeCart(rowId) {
+        $.ajax({
+            type: "GET",
+            url: "gio-hang/xoa",
+            data: {rowId: rowId},
+            success: function (response) {
+                var cart_tbody = $('.cart-table tbody');
+                var cart_existItem = cart_tbody.find("tr" + "[data-rowid='" + rowId +"']");
+                cart_existItem.remove();
+                $('.cart-total span').text('$' + response['subtotal']);
+                $('.cart-price').text('$' + response['subtotal']);
+                $('.cart-count').text(response['count']);
+                alert('Delete successfully!\nProduct: ' + response['cart'].name);
+            },
+            error: function (response) {
+                alert('Delete failed');
+            },
+        });
+    }
+    function updateCart(rowId, qty) {
+        $.ajax({
+            url: 'gio-hang/chinh-sua',
+            type: 'GET',
+            data: {rowId: rowId, qty: qty},
+            success: function (response) {
+                var cart_tbody = $('.cart-table tbody');
+                var cart_existItem = cart_tbody.find("tr" + "[data-rowId='" + rowId +"']");
+                if(qty == 0) {
+                    cart_existItem.remove();
+                }else {
+                    cart_existItem.find('.total-price').text('$' + response['cart'].price * response['cart'].qty);
+                }
+                $('.cart-total span').text('$' + response['subtotal']);
+                $('.cart-price').text('$' + response['subtotal']);
+                $('.cart-count').text(response['count']);
+            },
+            error:function (response) {
+                alert('Update failed.');
+            },
+        });
+    }

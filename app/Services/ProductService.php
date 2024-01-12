@@ -17,4 +17,16 @@ class ProductService extends BaseService
     {
         $this->mainRepository = $productRepositoryInterface;
     }
+
+    public function getFeaturedProduct()
+    {
+        return [
+            "loafer" => $this->mainRepository->findByWithRelationship(
+                ['category'],
+                ['category_id' => 1, 'featured' => true]),
+            "boot" => $this->mainRepository->findByWithRelationship(
+                ['category'],
+                ['category_id' => 2, 'featured' => true]),
+        ];
+    }
 }

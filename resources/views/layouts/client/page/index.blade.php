@@ -82,108 +82,41 @@
                     <div class="filter-control">
                         <ul>
                             <li class="active item" data-tag="*" data-category="loafer">All</li>
-                            <li class="item" data-tag=".PennyLoafer" data-category="loafer">Penny Loafer</li>
-                            <li class="item" data-tag=".TasselledLoafer" data-category="loafer">Tasselled Loafer</li>
-                            <li class="item" data-tag=".HorsebitLoafer" data-category="loafer">Horsebit loafer</li>
+                            <li class="item" data-tag=".August" data-category="loafer">August</li>
+                            <li class="item" data-tag=".TheWolf" data-category="loafer">TheWolf</li>
+                            <li class="item" data-tag=".Channel" data-category="loafer">Channel</li>
+                            <li class="item" data-tag=".Dior" data-category="loafer">Dior</li>
                         </ul>
                     </div>
-                    <div class="product-slider owl-carousel women">
-                        <div class="product-item item ">
-                            <div class="pi-pic">
-                                <img src="front/img/products/loafer-1.png" alt="">
-                                <div class="sale">Sale</div>
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
+                    <div class="product-slider owl-carousel loafer">
+                        @foreach($featured['loafer'] as $product)
+                            <div class="product-item item {{$product->brand->name}}">
+                                <div class="pi-pic">
+                                    <img src="front/img/products/{{$product->productImages[0]->path}}" alt="">
+                                    <div class="sale">Sale</div>
+                                    <div class="icon">
+                                        <i class="icon_heart_alt"></i>
+                                    </div>
+                                    <ul>
+                                        <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
+                                        <li class="quick-view"><a href="">Quick View</a></li>
+                                        <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
+                                    </ul>
                                 </div>
-                                <ul>
-                                    <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="">Quick View</a></li>
-                                    <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="caterogy-name">Penny Loafer</div>
-                                <a href="">
-                                    <h5>Casual Drive Loafer</h5>
-                                </a>
-                                <div class="product-price">
-                                    $150
-                                    <span>$120</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item item ">
-                            <div class="pi-pic">
-                                <img src="front/img/products/loafer-2.png" alt="">
-                                <div class="sale">Sale</div>
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="">Quick View</a></li>
-                                    <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="caterogy-name">Tasselled Loafer</div>
-                                <a href="">
-                                    <h5>Slip-on Loafers</h5>
-                                </a>
-                                <div class="product-price">
-                                    $150
-                                    <span>$120</span>
+                                <div class="pi-text">
+                                    <div class="caterogy-name">{{$product->category->name}}</div>
+                                    <a href="">
+                                        <h5>{{$product->name}}</h5>
+                                    </a>
+                                    @if($product->discount != null)
+                                        ${{$product->price}}
+                                        <span>${{$product->discount}}</span>
+                                    @else
+                                        ${{$product->price}}
+                                    @endif
                                 </div>
                             </div>
-                        </div>
-                        <div class="product-item item ">
-                            <div class="pi-pic">
-                                <img src="front/img/products/loafer-3.png" alt="">
-                                <div class="sale">Sale</div>
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="">Quick View</a></li>
-                                    <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="caterogy-name">Tasselled Loafer</div>
-                                <a href="">
-                                    <h5>Loafer S20348</h5>
-                                </a>
-                                <div class="product-price">
-                                    $150
-                                    <span>$120</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item item ">
-                            <div class="pi-pic">
-                                <img src="front/img/products/loafer-4.png" alt="">
-                                <div class="sale">Sale</div>
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="">Quick View</a></li>
-                                    <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="caterogy-name">Horsebit loafer</div>
-                                <a href="">
-                                    <h5>LOAFER S2021</h5>
-                                </a>
-                                <div class="product-price">
-                                    $150
-                                    <span>$120</span>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -234,110 +167,44 @@
                 <div class="col-lg-8 ">
                     <div class="filter-control">
                         <ul>
-                            <li class="active item" data-tag="*" data-category="men">All</li>
-                            <li class="item" data-tag=".Chunky" data-category="men">Chunky Boot</li>
-                            <li class="item" data-tag=".Marbe" data-category="men">Marbe Boot</li>
-                            <li class="item" data-tag=".Chelsea" data-category="men">Chelsea Boot</li>
-                            <li class="item" data-tag=".Accessories" data-category="men">Harness Boot</li>
+                            <li class="active item" data-tag="*" data-category="boot">All</li>
+                            <li class="item" data-tag=".August" data-category="boot">August</li>
+                            <li class="item" data-tag=".TheWolf" data-category="boot">TheWolf</li>
+                            <li class="item" data-tag=".Channel" data-category="boot">Channel</li>
+                            <li class="item" data-tag=".Dior" data-category="boot">Dior</li>
                         </ul>
                     </div>
-                    <div class="product-slider owl-carousel men">
-                        <div class="product-item item">
-                            <div class="pi-pic">
-                                <img src="front/img/products/boot-1.png" alt="">
-                                <div class="sale">Sale</div>
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
+                    <div class="product-slider owl-carousel boot">
+                        @foreach($featured['boot'] as $product)
+                            <div class="product-item item {{$product->brand->name}}">
+                                <div class="pi-pic">
+                                    <img src="front/img/products/{{$product->productImages[0]->path}}" alt="">
+                                    <div class="sale">Sale</div>
+                                    <div class="icon">
+                                        <i class="icon_heart_alt"></i>
+                                    </div>
+                                    <ul>
+                                        <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
+                                        <li class="quick-view"><a href="">Quick View</a></li>
+                                        <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
+                                    </ul>
                                 </div>
-                                <ul>
-                                    <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="">Quick View</a></li>
-                                    <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="caterogy-name">CHUNKY CHELSEA BOOT</div>
-                                <a href="">
-                                    <h5>Chelsea boot S2131</h5>
-                                </a>
-                                <div class="product-price">
-                                    $150
-                                    <span>$120</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item item">
-                            <div class="pi-pic">
-                                <img src="front/img/products/boot-2.png" alt="">
-                                <div class="sale">Sale</div>
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="">Quick View</a></li>
-                                    <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="caterogy-name">MARBE CHUNKY BOOT</div>
-                                <a href="">
-                                    <h5>Chunky boot S2938</h5>
-                                </a>
-                                <div class="product-price">
-                                    $150
-                                    <span>$120</span>
+                                <div class="pi-text">
+                                    <div class="caterogy-name">{{$product->category->name}}</div>
+                                    <a href="">
+                                        <h5>{{$product->name}}</h5>
+                                    </a>
+                                    <div class="product-price">
+                                        @if($product->discount != null)
+                                            ${{$product->price}}
+                                            <span>${{$product->discount}}</span>
+                                        @else
+                                            ${{$product->price}}
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="product-item item">
-                            <div class="pi-pic">
-                                <img src="front/img/products/boot-3.png" alt="">
-                                <div class="sale">Sale</div>
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="">Quick View</a></li>
-                                    <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="caterogy-name">CHELSEA BOOT</div>
-                                <a href="">
-                                    <h5>Chelsea boot G2312</h5>
-                                </a>
-                                <div class="product-price">
-                                    $150
-                                    <span>$120</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item item">
-                            <div class="pi-pic">
-                                <img src="front/img/products/boot-4.png" alt="">
-                                <div class="sale">Sale</div>
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="">Quick View</a></li>
-                                    <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="caterogy-name">HARNESS BOOT</div>
-                                <a href="">
-                                    <h5>Harness boot H2312</h5>
-                                </a>
-                                <div class="product-price">
-                                    $150
-                                    <span>$120</span>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-lg-3 offset-lg-1">
