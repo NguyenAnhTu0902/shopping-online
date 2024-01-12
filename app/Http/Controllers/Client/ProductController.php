@@ -18,10 +18,10 @@ class ProductController extends Controller
         $this->productService = $productService;
     }
 
-     public function index() {
+     public function index(Request $request) {
          $brands = $this->brandService->all();
-         $products = $this->productService->all();
-         return view('layouts.client.page.shop', compact('brands', 'products'));
+         $products = $this->productService->getProductOnIndex($request);
+         return view('layouts.client.page.shop', compact('products', 'brands'));
      }
 
      public function show($id)

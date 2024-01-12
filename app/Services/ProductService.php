@@ -29,4 +29,8 @@ class ProductService extends BaseService
                 ['category_id' => 2, 'featured' => true]),
         ];
     }
+    public function getProductOnIndex($request)
+    {
+        return $this->mainRepository->getProductOnIndex($request);
+    }
 }
