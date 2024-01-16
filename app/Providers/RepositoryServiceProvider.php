@@ -20,6 +20,10 @@ use App\Repositories\MaterialBatch\MaterialBatchRepository;
 use App\Repositories\MaterialBatch\MaterialBatchRepositoryInterface;
 use App\Repositories\MedicalSessionRooms\MedicalSessionRoomRepository;
 use App\Repositories\MedicalSessionRooms\MedicalSessionRoomRepositoryInterface;
+use App\Repositories\Order\OrderRepository;
+use App\Repositories\Order\OrderRepositoryInterface;
+use App\Repositories\OrderDetail\OrderDetailRepository;
+use App\Repositories\OrderDetail\OrderDetailRepositoryInterface;
 use App\Repositories\Permission\PermissionRepository;
 use App\Repositories\Permission\PermissionRepositoryInterface;
 use App\Repositories\Product\ProductRepository;
@@ -49,6 +53,8 @@ class RepositoryServiceProvider extends ServiceProvider
         ProductImageRepositoryInterface::class => ProductImageRepository::class,
         ProductDetailRepositoryInterface::class => ProductDetailRepository::class,
         CategoryRepositoryInterface::class => CategoryRepository::class,
+        OrderRepositoryInterface::class => OrderRepository::class,
+        OrderDetailRepositoryInterface::class => OrderDetailRepository::class,
     ];
 
     /**
