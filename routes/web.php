@@ -32,11 +32,14 @@ Route::prefix('/san-pham')->group(function () {
     Route::get('/{id}', [App\Http\Controllers\Client\ProductController::class, 'show']);
 });
 
-//Cart
-//Show product
+//Giỏ hàng
 Route::prefix('/gio-hang')->group(function () {
     Route::get('', [App\Http\Controllers\Client\CartController::class, 'index']);
     Route::get('/them-moi', [App\Http\Controllers\Client\CartController::class, 'addCart']);
     Route::get('/xoa', [App\Http\Controllers\Client\CartController::class, 'delete']);
     Route::get('/chinh-sua', [App\Http\Controllers\Client\CartController::class, 'update']);
+});
+//Đặt hàng
+Route::prefix('/dat-hang')->group(function () {
+    Route::get('', [App\Http\Controllers\Client\OrderController::class, 'index']);
 });

@@ -56,9 +56,9 @@
                         <div class="col-lg-4 offset-lg-4">
                             <div class="proceed-checkout">
                                 <ul>
-                                    <li class="cart-total">Total <span>${{Cart::total()}}</span></li>
+                                    <li class="cart-total">Total <span>${{Cart::subtotal()}}</span></li>
                                 </ul>
-                                <a href="/order" class="proceed-btn">PROCEED TO CHECK OUT</a>
+                                <a href="/dat-hang" class="proceed-btn">PROCEED TO CHECK OUT</a>
                             </div>
                         </div>
                     </div>
