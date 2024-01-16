@@ -3,7 +3,7 @@
     $search = $dataSearch['search'] ?? null;
     $price_min = $dataSearch['price_min'] ?? null;
     $price_max = $dataSearch['price_max'] ?? null;
-    $brandChoose = $dataSearch['brand'] ?? null
+    $brandChoose = $dataSearch['brand'] ?? null;
 @endphp
 @extends('layouts.client.layout.master')
 @section('title','Shop')
@@ -34,7 +34,7 @@
                     <div class="product-show-option">
                         <div class="row">
                             <div class="col-lg-7 col-md-7">
-                                <form action="">
+                                <form action="/san-pham">
                                     <div class="select-option">
                                         <select class="sorting" onchange="this.form.submit();" name="sort_by" >
                                             <option {{request('sort_by') == 'latest' ? 'selected' : ''}} value="latest">Sorting: Latest</option>
@@ -45,12 +45,17 @@
                                             <option {{request('sort_by') == 'price-descending' ? 'selected' : ''}} value="price-descending">Sorting: Price decrease</option>
                                         </select>
                                         <select class="p-show" onchange="this.form.submit();" name="show">
-                                            <option {{request('show') == '9' ? 'selected' : ''}} value="9">Show: 9</option>
-                                            <option {{request('show') == '15' ? 'selected' : ''}} value="15">Show: 15</option>
+                                            <option {{request('show') == '6' ? 'selected' : ''}} value="6">Show: 6</option>
+                                            <option {{request('show') == '12' ? 'selected' : ''}} value="12">Show: 12</option>
+                                            <option {{request('show') == '18' ? 'selected' : ''}} value="18">Show: 18</option>
                                         </select>
                                     </div>
                                     <input name="search" type="hidden" @if($dataSearch) value="{{$search}}" @else value="" @endif>
-                                    <input name="brand[]" type="hidden" @if($dataSearch) value="{{implode(',', $brandChoose)}}" @else value="" @endif>
+                                    @if($dataSearch && is_array($brandChoose))
+                                        @foreach($brandChoose as $key => $value)
+                                            <input name="brand[{{$key}}]" type="hidden" value="{{$value}}">
+                                        @endforeach
+                                    @endif
                                     <input name="price_max" type="hidden" @if($dataSearch) value="{{$price_max}}" @else value="" @endif>
                                     <input name="price_min" type="hidden" @if($dataSearch) value="{{$price_min}}" @else value="" @endif>
                                 </form>
@@ -91,6 +96,7 @@
                             @endforeach
                         </div>
                     </div>
+                    {{$products->links()}}
                 </div>
             </div>
         </div>

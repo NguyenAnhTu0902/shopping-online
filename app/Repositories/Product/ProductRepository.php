@@ -6,6 +6,7 @@ use App\Constants\CommonConstants;
 use App\Models\Product;
 use App\Repositories\BaseRepository;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ProductRepository extends BaseRepository implements ProductRepositoryInterface
 {
@@ -47,36 +48,45 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
 
     private function sortAndPagination($products, Request $request)
     {
-        $perPage = $request->show ?? 9 ;
+        $perPage = $request->show ?? 6;
         $sortBy = $request->sort_by ?? 'latest';
 
-        switch ($sortBy)
-        {
+        switch ($sortBy) {
             case 'latest':
                 $products = $products->sortBy('id');
                 break;
             case 'oldest':
-                $products = $products -> orderBy('id', 'desc');
+                $products = $products->sortByDesc('id');
                 break;
             case 'name-ascending':
-                $products = $products -> orderBy('name');
+                $products = $products->sortBy('name');
                 break;
             case 'name-descending':
-                $products = $products -> orderBy('name', 'desc');
+                $products = $products->sortByDesc('name');
                 break;
             case 'price-ascending':
-                $products = $products -> orderBy('price');
+                $products = $products->sortBy('discount');
                 break;
             case 'price-descending':
-                $products = $products -> orderBy('price', 'desc');
+                $products = $products->sortByDesc('discount');
                 break;
             default:
-                $products = $products -> orderBy('id');
-        };
-        $products = Product::query()
-            ->paginate($perPage)
-            ->appends(['sort_by' => $sortBy, 'show' => $perPage]);
+                $products = $products->sortBy('id');
+        }
 
-        return $products;
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $currentPageItems = array_slice($products->all(), ($currentPage - 1) * $perPage, $perPage);
+
+        $paginatedProducts = new LengthAwarePaginator(
+            $currentPageItems,
+            $products->count(),
+            $perPage,
+            $currentPage,
+            ['path' => LengthAwarePaginator::resolveCurrentPath()]
+        );
+
+        $paginatedProducts->appends(['sort_by' => $sortBy, 'show' => $perPage]);
+
+        return $paginatedProducts;
     }
 }

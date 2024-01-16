@@ -22,9 +22,6 @@ class ProductController extends Controller
          $brands = $this->brandService->all();
          $products = $this->productService->getProductOnIndex($request);
          session()->put('dataSearch', $request->all());
-         $dataSearch = session()->get('dataSearch');
-//         $brandChoose = $dataSearch['brand'];
-         dd($dataSearch);
          return view('layouts.client.page.shop', compact('products', 'brands'));
      }
 

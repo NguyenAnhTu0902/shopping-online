@@ -1,3 +1,10 @@
+@php
+    $dataSearch = session()->get('dataSearch') ?? null;
+    $search = $dataSearch['search'] ?? null;
+    $price_min = $dataSearch['price_min'] ?? null;
+    $price_max = $dataSearch['price_max'] ?? null;
+    $brandChoose = $dataSearch['brand'] ?? null;
+@endphp
 <form action="san-pham">
     <div class="filter-widget">
         <h4 class="fw-title">Brand</h4>
@@ -7,7 +14,7 @@
                     <label for="bc-{{$brand->id}}">
                         {{$brand->name}}
                         <input type="checkbox"
-                               @if($dataSearch)
+                               @if(!empty($dataSearch))
                                    {{$brand}}
                                {{($brandChoose[$brand->id] ?? '') == 'on' ? 'checked' : ''}}
                                id="bc-{{$brand->id}}"
