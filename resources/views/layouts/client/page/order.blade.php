@@ -45,14 +45,14 @@
                                         <div class="pc-item">
                                             <label for="pc-check">
                                                 Thanh toán khi nhận hàng
-                                                <input type="radio" id="pc-check" name="payment_type" value="pay_later">
+                                                <input type="radio" id="pc-check" name="payment" value="pay_later" checked>
                                                 <span class="checkmark"></span>
                                             </label>
                                         </div>
                                         <div class="pc-item">
                                             <label for="pc-paypal">
                                                 Thanh toán online
-                                                <input disabled type="radio" id="pc-paypal" name="payment_type" value="online_payment">
+                                                <input disabled type="radio" id="pc-paypal" name="payment" value="online_payment" >
                                                 <span class="checkmark"></span>
                                             </label>
                                         </div>

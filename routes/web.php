@@ -42,4 +42,6 @@ Route::prefix('/gio-hang')->group(function () {
 //Đặt hàng
 Route::prefix('/dat-hang')->group(function () {
     Route::get('', [App\Http\Controllers\Client\OrderController::class, 'index']);
+    Route::post('', [App\Http\Controllers\Client\OrderController::class, 'create']);
+    Route::get('/tro-ve',[App\Http\Controllers\Client\OrderController::class, 'result']);
 });
