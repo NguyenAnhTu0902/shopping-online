@@ -14,19 +14,35 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <label for="fir">Họ tên <span>*</span></label>
-                                    <input type="text" id="fir" name="name">
+                                    @error('name')
+                                    <br>
+                                    <span class="error validate-error">{{$message}}</span>
+                                    @enderror
+                                    <input type="text" id="fir" name="name" value="{{old('name')}}">
                                 </div>
                                 <div class="col-lg-12">
                                     <label for="phone">Phone <span>*</span></label>
-                                    <input type="text" id="phone" name="phone">
+                                    @error('phone')
+                                    <br>
+                                    <span class="error validate-error">{{$message}}</span>
+                                    @enderror
+                                    <input type="text" id="phone" name="phone" value="{{old('phone')}}">
                                 </div>
                                 <div class="col-lg-12">
                                     <label for="email">Email <span>*</span></label>
-                                    <input type="text" id="email" name="email">
+                                    @error('email')
+                                    <br>
+                                    <span class="error validate-error">{{$message}}</span>
+                                    @enderror
+                                    <input type="text" id="email" name="email" value="{{old('email')}}">
                                 </div>
                                 <div class="col-lg-12">
                                     <label for="address">Địa chỉ <span>*</span></label>
-                                    <input type="text" id="address" name="address">
+                                    @error('address')
+                                    <br>
+                                    <span class="error validate-error">{{$message}}</span>
+                                    @enderror
+                                    <input type="text" id="address" name="address" value="{{old('address')}}">
                                 </div>
                             </div>
                         </div>

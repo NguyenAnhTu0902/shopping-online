@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Constants\CommonConstants;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OrderRequest;
 use App\Services\OrderDetailService;
 use App\Services\OrderService;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -27,7 +28,7 @@ class OrderController extends Controller
         $subtotal = Cart::subtotal();
         return view('layouts.client.page.order', compact('carts', 'total', 'subtotal'));
     }
-    public function create(Request $request)
+    public function create(OrderRequest $request)
     {
         //Thêm đơn hàng
         $data = $request->all();

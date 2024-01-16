@@ -61,4 +61,7 @@ class CommonConstants
         self::order_status_Cancel => "Cancel",
 
     ];
+    // Regex
+    public const RULES_PHONE = 'bail|nullable|numeric|min_digits:10|max_digits:11|regex:/^[0-9]+$/';
+
 }

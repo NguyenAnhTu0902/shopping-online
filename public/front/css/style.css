@@ -4279,6 +4279,8 @@ ol {
 		padding-left: 15px;
 		padding-right: 15px;
 	}
-
-
+}
+.validate-error {
+    font-size: 80%;
+    color: #dc3545;
 }
