@@ -47,3 +47,9 @@ Route::prefix('/dat-hang')->group(function () {
 });
 
 Route::get('/admin', [App\Http\Controllers\Admin\HomePageController::class, 'index']);
+
+Route::prefix('/admin')->group(function () {
+    Route::get('', [App\Http\Controllers\Admin\HomePageController::class, 'index']);
+    Route::get('/nguoi-dung', [App\Http\Controllers\Admin\HomePageController::class, 'index']);
+    Route::get('/don-hang', [App\Http\Controllers\Admin\OrderController::class, 'index']);
+});
