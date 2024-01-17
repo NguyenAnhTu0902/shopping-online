@@ -45,3 +45,5 @@ Route::prefix('/dat-hang')->group(function () {
     Route::post('', [App\Http\Controllers\Client\OrderController::class, 'create']);
     Route::get('/tro-ve',[App\Http\Controllers\Client\OrderController::class, 'result']);
 });
+
+Route::get('/admin', [App\Http\Controllers\Admin\HomePageController::class, 'index']);
