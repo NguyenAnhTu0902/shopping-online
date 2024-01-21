@@ -88,6 +88,7 @@
 <script src="{{ asset('js/constants.js') }}"></script>
 <script src="{{ asset('js/select2.full.min.js') }}"></script>
 <script src="{{ asset('js/toastr.min.js') }}"></script>
+<script src="{{ asset('js/common.js') }}"></script>
 @stack('scripts')
 </body>
 

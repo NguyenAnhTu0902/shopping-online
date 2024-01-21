@@ -4,11 +4,10 @@ namespace App\Http\Controllers\Client;
 
 use App\Constants\CommonConstants;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\OrderRequest;
+use App\Http\Requests\Client\OrderRequest;
 use App\Services\OrderDetailService;
 use App\Services\OrderService;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {

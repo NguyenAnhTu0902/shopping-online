@@ -2,8 +2,10 @@
 
 namespace App\Repositories;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use App\Constants\CommonConstants;
 
 abstract class BaseRepository
 {
@@ -174,6 +176,59 @@ abstract class BaseRepository
     public function whereIn($column, array $data, $relations)
     {
         return $this->model->with($relations)->whereIn($column, $data);
+    }
+
+
+    /**
+     *
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    protected function paginate(Builder $query, array $pagination)
+    {
+        return $query->paginate(
+            $pagination[CommonConstants::INPUT_PAGE_SIZE],
+            CommonConstants::SELECT_ALL,
+            CommonConstants::INPUT_PAGE,
+            $pagination[CommonConstants::INPUT_PAGE]
+        );
+    }
+
+    /**
+     * Handle data paginate
+     *
+     * @param array $data
+     *
+     * @return array
+     */
+    public function handlePaginate($data)
+    {
+        $page[CommonConstants::INPUT_PAGE_SIZE] = CommonConstants::DEFAULT_LIMIT_PAGE;
+        $page[CommonConstants::INPUT_PAGE] = CommonConstants::PAGE_DEFAULT;
+        if (!empty($data[CommonConstants::KEY_LIMIT])) {
+            $page[CommonConstants::INPUT_PAGE_SIZE] = $data[CommonConstants::KEY_LIMIT];
+        }
+        if (isset($data[CommonConstants::INPUT_PAGE])) {
+            $pageNumber = (int)$data[CommonConstants::INPUT_PAGE];
+            $page[CommonConstants::INPUT_PAGE] = $pageNumber;
+        }
+        return $page;
+    }
+
+    /**
+     * Select column
+     *
+     * @param array $select
+     *
+     * @return Builder
+     */
+    public function select(array $select): Builder
+    {
+        return $this->model->select($select);
+    }
+
+    public function saveMultipleData(array $data)
+    {
+        return $this->model->insert($data);
     }
 
 }

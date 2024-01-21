@@ -9,18 +9,8 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    protected $orderService;
-
-    protected $orderDetailService;
-
-    public function __construct(OrderService $orderService, OrderDetailService $orderDetailService)
-    {
-        $this->orderService = $orderService;
-        $this->orderDetailService = $orderDetailService;
-    }
-
     public function index()
     {
-        return view('layouts.admin.elements.order.index');
+        return view('layouts.admin.order.index');
     }
 }

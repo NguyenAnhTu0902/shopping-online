@@ -12,4 +12,8 @@ class OrderDetailService extends BaseService
     {
         $this->mainRepository = $orderDetailRepositoryInterface;
     }
+    public function getOrderDetail($id)
+    {
+        return $this->mainRepository->findByWithRelationship(['order'], ['order_id' => $id]);
+    }
 }

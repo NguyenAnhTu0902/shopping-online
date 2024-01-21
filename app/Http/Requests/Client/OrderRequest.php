@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Client;
 
 use App\Constants\CommonConstants;
 use Illuminate\Foundation\Http\FormRequest;

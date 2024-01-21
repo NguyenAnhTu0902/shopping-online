@@ -227,6 +227,16 @@ button.button-cancel {
     font-size: 12px;
     line-height: 1.5;
 }
+button.button-success {
+    background-color: #2dbf13;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid transparent;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+}
 
 .fa-times, .fa-save, .fa-sync-alt {
     padding-right: 3px;

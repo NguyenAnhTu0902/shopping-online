@@ -48,8 +48,8 @@ Route::prefix('/dat-hang')->group(function () {
 
 Route::get('/admin', [App\Http\Controllers\Admin\HomePageController::class, 'index']);
 
-Route::prefix('/admin')->group(function () {
+Route::prefix('/admin')->name('.admin')->group(function () {
     Route::get('', [App\Http\Controllers\Admin\HomePageController::class, 'index']);
-    Route::get('/nguoi-dung', [App\Http\Controllers\Admin\HomePageController::class, 'index']);
-    Route::get('/don-hang', [App\Http\Controllers\Admin\OrderController::class, 'index']);
+    Route::get('/nguoi-dung', [App\Http\Controllers\Admin\HomePageController::class, 'index'])->name('user.index');
+    Route::get('/don-hang', [App\Http\Controllers\Admin\OrderController::class, 'index'])->name('order.index');
 });
