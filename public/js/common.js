@@ -162,6 +162,34 @@ function createOrUpdateWithFile(api, data, nextAction) {
         }
     });
 }
+/**
+ * action for call api with POST method like create, update, delete,...with file
+ * @param api
+ * @param data
+ * @param nextAction
+ */
+function createOrUpdateWithFile(api, data, nextAction) {
+    $.ajax({
+        url: api,
+        type: 'POST',
+        data: data,
+        cache: false,
+        processData: false,
+        contentType: false,
+        beforeSend: function() {
+            $('.loading').show();
+        },
+        complete: function(){
+            $('.loading').hide();
+        },
+        success: function (response) {
+            nextAction(response);
+        },
+        error: function (request, error) {
+            errorFunction(request)
+        }
+    });
+}
 
 function resetForm(form = '', option = '') {
     $("#input-search-order").val('').trigger('change');

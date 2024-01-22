@@ -18,4 +18,8 @@ class ProductImageService extends BaseService
     {
         $this->mainRepository = $productImageRepositoryInterface;
     }
+    public function getProductImages($id)
+    {
+        return $this->mainRepository->findByWithRelationship(['product'], ['product_id' => $id]);
+    }
 }

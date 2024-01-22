@@ -70,8 +70,8 @@ class OrderController extends Controller
     {
         try {
             $id = $request->input('id');
-            $hospital = $this->orderService->findOneOrFail($id);
-            $response['data'] = $hospital->delete();
+            $order = $this->orderService->findOneOrFail($id);
+            $response['data'] = $order->delete();
             return $this->deleteSuccessResponse($response);
         } catch (\Exception $e) {
             return $this->badRequestErrorResponse($e);

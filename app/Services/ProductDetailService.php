@@ -18,4 +18,9 @@ class ProductDetailService extends BaseService
     {
         $this->mainRepository = $productDetailRepositoryInterface;
     }
+
+    public function getProductDetails($id)
+    {
+        return $this->mainRepository->findByWithRelationship(['product'], ['product_id' => $id]);
+    }
 }
