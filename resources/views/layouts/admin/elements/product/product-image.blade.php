@@ -1,3 +1,6 @@
+@php
+    $data = session()->get('productId') ?? null;
+@endphp
 <div id="product-image" class="modal fade bd-example-modal-lg" tabindex="-1" aria-labelledby="myLargeModalLabel"
      aria-modal="true" role="dialog">
     <div class="modal-dialog modal-xl" role="document">
@@ -11,10 +14,6 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <form id="add-image-form" enctype="multipart/form-data">
-                {{ csrf_field() }}
-                <input type="file" name="image">
-            </form>
             <div class="modal-body"></div>
 
             <div class="modal-footer justify-content-between">

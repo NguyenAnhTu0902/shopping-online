@@ -88,22 +88,17 @@ class ProductController extends Controller
     public function showImage($id)
     {
         $images = $this->productImageService->getProductImages($id);
+        session()->put('productId', $id);
         return view('layouts.admin.elements.product.product-image-result', compact('images', 'id'))->render();
     }
     public function uploadImage(Request $request)
     {
-        $data = $request->input();
         try {
-            if ($request->hasFile('image')) {
-                $data['path'] = CommonHelper::uploadFile($request->file('image'),'front/img/products');
-            }
-            $response['data'] = $this->productImageService->create($data);
-            $response['message'] = __('messages.SM-001');
-            return $this->successResponse($response);
+            $result['data'] = $this->productImageService->createProductImage($request);
+            return $this->createSuccessResponse($result);
         } catch (\Exception $e) {
             return $this->badRequestErrorResponse($e);
         }
-
     }
 
     public function deleteImage(Request $request)

@@ -64,4 +64,5 @@ class CommonConstants
     // Regex
     public const RULES_PHONE = 'bail|nullable|numeric|min_digits:10|max_digits:11|regex:/^[0-9]+$/';
 
+    public const PRODUCT_IMAGE = 'products' . DIRECTORY_SEPARATOR . 'images';
 }

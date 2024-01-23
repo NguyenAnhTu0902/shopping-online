@@ -27,9 +27,9 @@ $(document).ready(function () {
     });
     $(document).on("click", ".btn-update-image", function () {
         let api = API_ADD_IMAGE;
-        var data = new FormData($("#add-news-form")[0]);
+        var data = new FormData($("#add-image-form")[0]);
         hideMessageValidate('#add-image-form');
-        createOrUpdateWithFile(api, data, nextAddProduct);
+        createOrUpdateWithFile(api, data, nextAddImage);
     });
 
     $(document).on("click", ".open-edit-modal", function () {
@@ -194,6 +194,15 @@ function nextDeleteImage(data) {
     toastAlert(data.message, "", "success");
     setTimeout(() => {
         let id = data.product_id;
+        let api = API_IMAGE;
+        api = api.replace(":id", id);
+        getData(api, id, appendDataImage);
+    }, 500)
+}
+function nextAddImage(data) {
+    toastAlert(data.message, "", "success");
+    setTimeout(() => {
+        let id = data.data.product_id;
         let api = API_IMAGE;
         api = api.replace(":id", id);
         getData(api, id, appendDataImage);
