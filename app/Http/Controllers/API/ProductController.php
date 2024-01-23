@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Helpers\CommonHelper;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\ProductImageRequest;
 use App\Http\Requests\Admin\ProductRequest;
 use App\Services\ProductDetailService;
 use App\Services\ProductImageService;
@@ -91,7 +92,7 @@ class ProductController extends Controller
         session()->put('productId', $id);
         return view('layouts.admin.elements.product.product-image-result', compact('images', 'id'))->render();
     }
-    public function uploadImage(Request $request)
+    public function uploadImage(ProductImageRequest $request)
     {
         try {
             $result['data'] = $this->productImageService->createProductImage($request);
