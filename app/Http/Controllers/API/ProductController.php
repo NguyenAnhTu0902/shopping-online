@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Helpers\CommonHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ProductImageRequest;
 use App\Http\Requests\Admin\ProductRequest;
@@ -47,10 +46,18 @@ class ProductController extends Controller
      */
     public function add(ProductRequest $request)
     {
-        $data = $request->all();
+        $data = $request->only(
+            'name',
+            'category_id',
+            'brand_id',
+            'description',
+            'price',
+            'discount',
+            'featured',
+        );
         $data['qty'] = 0;
         try {
-            $response['data'] = $this->productService->create($data);
+            $response['data'] = $this->productService->createProduct($data);
             $response['message'] = __('messages.SM-001');
             return $this->successResponse($response);
         } catch (\Exception $e) {
@@ -75,7 +82,15 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request)
     {
-        $data = $request->all();
+        $data = $request->only(
+            'name',
+            'category_id',
+            'brand_id',
+            'description',
+            'price',
+            'discount',
+            'featured',
+        );
         try {
             $id = $data['id'];
             $product = $this->productService->findOneOrFail($id);

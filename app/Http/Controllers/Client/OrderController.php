@@ -30,7 +30,13 @@ class OrderController extends Controller
     public function create(OrderRequest $request)
     {
         //Thêm đơn hàng
-        $data = $request->all();
+        $data = $request->only(
+            'name',
+            'address',
+            'phone',
+            'email',
+            'payment'
+        );
 
         $data['status'] = CommonConstants::order_status_ReceiveOrders;
         $order = $this->orderService->create($data);
