@@ -15,34 +15,36 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     {
         return Product::class;
     }
-    public function getProductOnIndex($request)
+    public function getProductOnIndex(Request $request)
     {
+        //Search
         $search = $request->search ?? '';
-        $products = $this->model
-            ->where(function ($query) use ($search) {
-                $query->where('name', CommonConstants::OPERATOR_LIKE, '%' . $search . '%')
-                    ->orWhere('description', CommonConstants::OPERATOR_LIKE, '%' . $search . '%');
-            })
-            ->get();
-        $products = $this->filter($products, $request);
-        $products = $this->sortAndPagination($products,$request);
-        return $products;
-    }
-    private function filter($products, Request $request)
-    {
         //Brand
         $brands = $request->brand ?? [];
         $brand_ids = array_keys($brands);
-        $products = $brand_ids != null ? $products->whereIn('brand_id', $brand_ids) : $products;
-
         //Price
         $priceMin = $request->price_min;
         $priceMax = $request->price_max;
         $priceMin = str_replace('$', '', $priceMin);
         $priceMax = str_replace('$', '', $priceMax);
-        $products = ($priceMin != null && $priceMax != null)
-            ? $products->whereBetween('discount', [$priceMin, $priceMax])
-            : $products;
+
+        $query = $this->model
+            ->where(function ($query) use ($search) {
+                $query->where('name', CommonConstants::OPERATOR_LIKE, "%{$search}%")
+                    ->orWhereHas('category', function ($q) use ($search) {
+                        $q->where('name', CommonConstants::OPERATOR_LIKE, "%{$search}%");
+                });
+            })
+            ->when($brand_ids, function ($query) use ($brand_ids) {
+                $query->whereIn('brand_id', $brand_ids);
+            })
+            ->when($priceMin && $priceMax, function ($query) use ($priceMin, $priceMax) {
+                $query->whereBetween('discount', [$priceMin, $priceMax]);
+            });
+
+        $products = $query->get();
+        $products = $this->sortAndPagination($products,$request);
+
         return $products;
     }
 

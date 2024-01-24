@@ -73,7 +73,7 @@ class ProductController extends Controller
      * @param Request $request
      * @return JsonResponse
      */
-    public function update(Request $request)
+    public function update(ProductRequest $request)
     {
         $data = $request->all();
         try {
