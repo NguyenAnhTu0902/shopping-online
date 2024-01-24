@@ -18,7 +18,7 @@
                 <!-- The user image in the navbar-->
                 <img src="{{ asset("images\avatar\president.png") }}" class="user-image" alt="User Image">
                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                <label class="hidden-xs label-user" for="">Nguyễn Anh Tú</label>
+                <label class="hidden-xs label-user" for="">{{Auth::user()->name}}</label>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
                 <a href="" class="dropdown-item">
@@ -26,9 +26,9 @@
                     Thông tin chi tiết
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="" class="dropdown-item" id="btn-logout">
+                <a href="/admin/dang-xuat" class="dropdown-item" id="btn-logout">
                     <i class="fas fa-power-off mr-2"></i>Đăng xuất
-                    <form action="" method="post" id="form-logout" class="d-none">
+                    <form action="/admin/dang-xuat" method="post" id="form-logout" class="d-none">
                         @csrf
                     </form>
                 </a>

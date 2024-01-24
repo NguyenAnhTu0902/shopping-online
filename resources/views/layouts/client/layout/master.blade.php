@@ -52,15 +52,15 @@
                 </div>
 
                 <div class="ht-right">
-                    {{-- @if(Auth::check())
-                        <a href="./account/logout" class="login-panel">
+                    @if(Auth::check())
+                        <a href="./dang-xuat" class="login-panel">
                             <i class="fa fa-user"></i>
                             {{Auth::user()->name}} - Logout
                         </a>
-                    @else --}}
+                    @else
                         <a style="margin-left: 10px;" href="/dang-nhap" class="login-panel" ><i class="fa fa-user"></i>Login</a>
                         <a href="/dang-ky" class="login-panel" ><i class="fa fa-user"></i>Register</a>
-                    {{-- @endif --}}
+                     @endif
                     <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width: 300px;">
                             <option value="yt" data-image ="front/img/flag-1.jpg" data-imagecss="flag yt" data-title ="English">English</option>
@@ -129,7 +129,7 @@
                         <li class=""><a href="./san-pham">Shop</a></li>
                         <li><a href="">Blog</a></li>
                         <li><a href="">Contact</a></li>
-                        <li><a href="/my-order/">My Order</a></li>
+                        <li><a href="/don-hang-cua-toi/">My Order</a></li>
                     </ul>
                 </nav>
                 <div id="mobie-menu-wrap">

@@ -14,6 +14,11 @@ class OrderService extends BaseService
         $this->mainRepository = $orderRepositoryInterface;
     }
 
+    public function getOrderByUserId($id)
+    {
+        return $this->mainRepository->findByWithRelationship(['user'], ['user_id' => $id]);
+    }
+
     public function list($data, $paginate = false, $select = CommonConstants::SELECT_ALL)
     {
         $orders = $this->mainRepository->list($data, $paginate, $select);

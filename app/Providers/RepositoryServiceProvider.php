@@ -55,6 +55,7 @@ class RepositoryServiceProvider extends ServiceProvider
         CategoryRepositoryInterface::class => CategoryRepository::class,
         OrderRepositoryInterface::class => OrderRepository::class,
         OrderDetailRepositoryInterface::class => OrderDetailRepository::class,
+        UserRepositoryInterface::class => UserRepository::class,
     ];
 
     /**

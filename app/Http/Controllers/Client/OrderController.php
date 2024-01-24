@@ -8,6 +8,7 @@ use App\Http\Requests\Client\OrderRequest;
 use App\Services\OrderDetailService;
 use App\Services\OrderService;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -31,6 +32,7 @@ class OrderController extends Controller
     {
         //Thêm đơn hàng
         $data = $request->only(
+            'user_id' ?? null,
             'name',
             'address',
             'phone',
@@ -60,5 +62,17 @@ class OrderController extends Controller
     {
         $notification = session('notification');
         return view('layouts.client.page.result', compact('notification'));
+    }
+    public function myOrder()
+    {
+        $orders = $this->orderService->getOrderByUserId(Auth::id());
+        return view('layouts.client.page.my_order', compact('orders'));
+    }
+
+    public function myOrderDetail($id)
+    {
+        $order = $this->orderService->find($id);
+
+        return view('layouts.client.page.my_order_detail', compact('order'));
     }
 }

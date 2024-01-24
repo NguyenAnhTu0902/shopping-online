@@ -44,7 +44,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="" class="brand-link">
+        <a href="/admin" class="brand-link">
             <img src="{{ asset("images\logo\logo.png") }}"
                  class="brand-image img-circle elevation-3 label-logo" style="opacity: 1.0" title="Logo" alt="">
             <span class="brand-text font-weight-light label-default_name">Hanavy Shop</span>

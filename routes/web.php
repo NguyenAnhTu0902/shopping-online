@@ -21,6 +21,7 @@ Route::prefix('/dang-nhap')->group(function () {
     Route::get('', [App\Http\Controllers\Client\AuthController::class, 'login']);
     Route::post('', [App\Http\Controllers\Client\AuthController::class, 'checkLogin'])->name('login');
 });
+Route::get('/dang-xuat',[App\Http\Controllers\Client\AuthController::class, 'logout']);
 Route::prefix('/dang-ky')->group(function () {
     Route::get('', [App\Http\Controllers\Client\AuthController::class, 'register']);
     Route::post('', [App\Http\Controllers\Client\AuthController::class, 'checkRegister'])->name('register');
@@ -45,10 +46,18 @@ Route::prefix('/dat-hang')->group(function () {
     Route::post('', [App\Http\Controllers\Client\OrderController::class, 'create']);
     Route::get('/tro-ve',[App\Http\Controllers\Client\OrderController::class, 'result']);
 });
+Route::prefix('don-hang-cua-toi')->middleware('CheckUser')->group(function (){
+    Route::get('/',[App\Http\Controllers\Client\OrderController::class, 'myOrder']);
+    Route::get('/{id}',[App\Http\Controllers\Client\OrderController::class, 'myOrderDetail']);
+});
 
-Route::get('/admin', [App\Http\Controllers\Admin\HomePageController::class, 'index']);
-
-Route::prefix('/admin')->name('.admin')->group(function () {
+Route::prefix('/admin')->middleware('CheckAdmin')->name('.admin')->group(function () {
+    Route::prefix('dang-nhap')->group(function () {
+        Route::get('',[App\Http\Controllers\Admin\AuthController::class, 'login'])->withoutMiddleware('CheckAdmin');
+        Route::post('',[App\Http\Controllers\Admin\AuthController::class, 'postLogin'])->withoutMiddleware('CheckAdmin');
+    });
+    Route::post('dang-xuat', [App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('logout');
+    Route::redirect('','admin/');
     Route::get('', [App\Http\Controllers\Admin\HomePageController::class, 'index']);
     Route::get('/nguoi-dung', [App\Http\Controllers\Admin\HomePageController::class, 'index'])->name('user.index');
     Route::get('/don-hang', [App\Http\Controllers\Admin\OrderController::class, 'index'])->name('order.index');

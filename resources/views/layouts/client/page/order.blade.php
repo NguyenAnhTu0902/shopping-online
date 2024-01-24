@@ -12,13 +12,14 @@
                         <div class="col-lg-6">
                             <h4>Billing Details</h4>
                             <div class="row">
+                                <input type="hidden" id="user_id" name="user_id" value="{{Auth::user()->id ?? ''}} " >
                                 <div class="col-lg-12">
                                     <label for="fir">Họ tên <span>*</span></label>
                                     @error('name')
                                     <br>
                                     <span class="error validate-error">{{$message}}</span>
                                     @enderror
-                                    <input type="text" id="fir" name="name" value="{{old('name')}}">
+                                    <input type="text" id="fir" name="name" value="{{old('name') ?? Auth::user()->name ?? ''}}">
                                 </div>
                                 <div class="col-lg-12">
                                     <label for="phone">Phone <span>*</span></label>
@@ -26,7 +27,7 @@
                                     <br>
                                     <span class="error validate-error">{{$message}}</span>
                                     @enderror
-                                    <input type="text" id="phone" name="phone" value="{{old('phone')}}">
+                                    <input type="text" id="phone" name="phone" value="{{old('phone') ?? Auth::user()->phone ?? ''}}">
                                 </div>
                                 <div class="col-lg-12">
                                     <label for="email">Email <span>*</span></label>
@@ -34,7 +35,7 @@
                                     <br>
                                     <span class="error validate-error">{{$message}}</span>
                                     @enderror
-                                    <input type="text" id="email" name="email" value="{{old('email')}}">
+                                    <input type="text" id="email" name="email" value="{{old('email') ?? Auth::user()->email ?? ''}}">
                                 </div>
                                 <div class="col-lg-12">
                                     <label for="address">Địa chỉ <span>*</span></label>

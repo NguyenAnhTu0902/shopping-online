@@ -65,4 +65,16 @@ class CommonConstants
     public const RULES_PHONE = 'bail|nullable|numeric|min_digits:10|max_digits:11|regex:/^[0-9]+$/';
 
     public const PRODUCT_IMAGE = 'products' . DIRECTORY_SEPARATOR . 'images';
+    //User
+    const not_activated = 0;
+    const role_host = 1;
+    const role_admin = 2;
+    const role_client = 3;
+    public static $user_level = [
+        self::role_host =>'Host',
+        self::role_admin => 'Admin',
+        self::role_client => 'Client',
+        self::not_activated => 'Not activated',
+    ];
+
 }

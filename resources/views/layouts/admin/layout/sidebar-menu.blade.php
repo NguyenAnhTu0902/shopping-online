@@ -5,39 +5,40 @@
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
             <li class="nav-item">
-                <a href="" class="nav-link">
-                    <i class="nav-icon fas fa-users"></i>
+                <a href="#"
+                   class="nav-link " onclick="developing()">
+                    <i class="nav-icon fas fa-users" ></i>
                     <p>
-                        Users
+                        Quản lý người dùng
                     </p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="../admin/don-hang" class="nav-link {{ (request()->segment(2) == 'don-hang') ? 'active': ''}}">
                     <i class="nav-icon fas fa-shopping-bag"></i>
                     <p>
-                        Orders
+                        Quản lý đơn hàng
                         <span class="badge badge-info right">2</span>
                     </p>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="../admin/san-pham" class="nav-link {{ (request()->segment(2) == 'san-pham') ? 'active': ''}}">
                     <i class="nav-icon fas fa-bread-slice"></i>
-                    <p>Products</p>
+                    <p>Quản lý sản phẩm</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="#" class="nav-link" onclick="developing()">
                     <i class="nav-icon fas fa-tags"></i>
-                    <p>Categories</p>
+                    <p>Quản lý loại sản phẩm</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="#" class="nav-link" onclick="developing()">
                     <i class="nav-icon fas fa-bold"></i>
-                    <p>Brands</p>
+                    <p>Quản lý thương hiệu</p>
                 </a>
             </li>
         </ul>
