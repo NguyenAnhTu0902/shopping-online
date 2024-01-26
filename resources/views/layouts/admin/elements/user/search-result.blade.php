@@ -52,7 +52,13 @@
                                             <td class="word-break" tabindex="0">{{$user->name }}</td>
                                             <td class="word-break text-center">{{$user->phone}}</td>
                                             <td class="word-break text-center">{{$user->email}}</td>
-                                            <td class="no-wrap text-center">{{ $user->role }}</td>
+                                            <td class="no-wrap text-center">
+                                                @if($user->role == 0) Chưa kích hoạt
+                                                @elseif($user->role == 1) Host
+                                                @elseif($user->role == 2) Admin
+                                                @elseif($user->role == 3) Client
+                                                @endif
+                                            </td>
                                             <td class="dt-center">
                                                 <button class="btn btn-info btn-sm open-edit-modal"
                                                         data-form-id="form" data-toggle="modal"

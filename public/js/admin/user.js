@@ -38,11 +38,9 @@ $(document).ready(function () {
         let id = $(this).data('id');
         let data = {
             id: id,
-            code: $('#code-edit').val(),
+            phone: $('#phone-edit').val(),
             name: $('#name-edit').val(),
-            location: $('#location-edit').val(),
-            note: $('#note-edit').val(),
-            user_head_id: $('#user_head_id-edit').val(),
+            role: $('#role-edit').val(),
         };
         var api = API_UPDATE;
         hideMessageValidate('#edit-user-form');
@@ -52,7 +50,7 @@ $(document).ready(function () {
     $(document).on("click", ".delete-btn", function () {
         let name = $(this).data('name');
         swal({
-            title: `Bạn có chắc chắn muốn xóa khoa "${name}" ?`,
+            title: `Bạn có chắc chắn muốn xóa "${name}" ?`,
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -113,6 +111,9 @@ function appendDataEdit(data) {
 
 
 function nextAddUser(data) {
+    if(data.code == HTTP_FORBIDDEN){
+        toastAlert(data.message, "", "error");
+    }
     if (data.code == HTTP_UNPROCESSABLE_ENTITY) {
         showMessageValidate('add', data.errors);
     } else {
