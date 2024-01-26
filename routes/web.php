@@ -59,7 +59,7 @@ Route::prefix('/admin')->middleware('CheckAdmin')->name('.admin')->group(functio
     Route::post('dang-xuat', [App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('logout');
     Route::redirect('','admin/');
     Route::get('', [App\Http\Controllers\Admin\HomePageController::class, 'index']);
-    Route::get('/nguoi-dung', [App\Http\Controllers\Admin\HomePageController::class, 'index'])->name('user.index');
+    Route::get('/nguoi-dung', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('user.index');
     Route::get('/don-hang', [App\Http\Controllers\Admin\OrderController::class, 'index'])->name('order.index');
     Route::get('/san-pham', [App\Http\Controllers\Admin\ProductController::class, 'index'])->name('product.index');
 });

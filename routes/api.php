@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\ProductController;
-
+use App\Http\Controllers\API\UserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,6 +17,18 @@ use App\Http\Controllers\API\ProductController;
 */
 
 Route::prefix('admin')->name('admin.')->group(function () {
+    Route::prefix('nguoi-dung')->group(function () {
+        Route::get('/list', [UserController::class, 'list'])
+            ->name('list.user');
+        Route::post('/add', [UserController::class, 'add'])
+            ->name('add.user');
+        Route::get('/{id}', [UserController::class, 'detail'])
+            ->name('detail.user');
+        Route::post('/update', [UserController::class, 'update'])
+            ->name('update.user');
+        Route::post('/delete', [UserController::class, 'delete'])
+            ->name('delete.user');
+    });
     Route::prefix('don-hang')->group(function () {
         Route::get('/list', [OrderController::class, 'list'])
             ->name('list.order');

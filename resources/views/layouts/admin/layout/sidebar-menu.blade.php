@@ -5,8 +5,8 @@
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
             <li class="nav-item">
-                <a href="#"
-                   class="nav-link " onclick="developing()">
+                <a href="../admin/nguoi-dung"
+                   class="nav-link " {{ (request()->segment(2) == 'nguoi-dung') ? 'active': ''}}">
                     <i class="nav-icon fas fa-users" ></i>
                     <p>
                         Quản lý người dùng
