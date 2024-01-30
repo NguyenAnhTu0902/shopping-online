@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Services\OrderDetailService;
 use App\Services\OrderService;
+use Illuminate\Http\Request;
 
 class HomePageController extends Controller
 {
@@ -14,8 +16,10 @@ class HomePageController extends Controller
     {
         $this->orderService = $orderService;
     }
-    public function index()
+    public function dashboard()
     {
-        return view('layouts.admin.elements.dashboard.index');
+        $orderDashboard = $this->orderService->getDashboardData();
+        $result = array_merge($orderDashboard);
+        return $result;
     }
 }

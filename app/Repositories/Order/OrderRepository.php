@@ -5,6 +5,8 @@ namespace App\Repositories\Order;
 use App\Constants\CommonConstants;
 use App\Models\Order;
 use App\Repositories\BaseRepository;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class OrderRepository extends BaseRepository implements OrderRepositoryInterface
 {
@@ -39,4 +41,38 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
         }
         return $query;
     }
+
+    public function totalOrder()
+    {
+        // Get the current year and month
+        $currentYear = date('Y');
+        $currentMonth = date('m');
+
+        return $this->model
+            ->select('id')
+            ->whereYear('created_at', $currentYear)
+            ->whereMonth('created_at', $currentMonth)
+            ->count('id');
+    }
+    public function totalLastMonthOrder()
+    {
+        // Get the current year and month
+        $currentYear = date('Y');
+        $previousMonth = date('m', strtotime('-1 month'));
+
+        return $this->model
+            ->select('id')
+            ->whereYear('created_at', $currentYear)
+            ->whereMonth('created_at', $previousMonth)
+            ->count('id');
+    }
+    public function totalOrderReceive()
+    {
+        return $this->model->select('id')->where('status', '=' ,CommonConstants::order_status_ReceiveOrders)->count('id');
+    }
+    public function totalOrderFinish()
+    {
+        return $this->model->select('id')->where('status', '=' ,CommonConstants::order_status_Finish)->count('id');
+    }
+
 }

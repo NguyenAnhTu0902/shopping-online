@@ -1,12 +1,11 @@
 @extends('layouts.admin.layout.master')
-
 @section('content')
     <div id="content-list">
         <div class="row">
             <div class="col-lg-3 col-6">
                 <div class="small-box bg-info">
                     <div class="inner">
-                        <h3 id="total_order">12</h3>
+                        <h3 id="total_curent_order"></h3>
                         <p>Đơn hàng</p>
                     </div>
                     <div class="icon">
@@ -18,38 +17,38 @@
             <div class="col-lg-3 col-6">
                 <div class="small-box bg-success">
                     <div class="inner">
-                        <h3 id="product-total">9</h3>
-                        <p>Sản phẩm</p>
+                        <h3 id="total_order_receive"></h3>
+                        <p>Đơn hàng</p>
                     </div>
                     <div class="icon">
                         <i class="fas fa-chart-bar"></i>
                     </div>
                     <a href="#"
-                       class="small-box-footer">Tổng số sản phầm</a>
+                       class="small-box-footer">Tổng số đơn hàng đang chờ xử lý</a>
                 </div>
             </div>
             <div class="col-lg-3 col-6">
                 <div class="small-box bg-warning">
                     <div class="inner">
-                        <h3 id="total_patient_last_month">3</h3>
-                        <p>Người dùng</p>
+                        <h3 id="total_order_finish"></h3>
+                        <p>Đơn hàng</p>
                     </div>
                     <div class="icon">
                         <i class="fas fa-user-plus"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Tổng số người dùng</a>
+                    <a href="#" class="small-box-footer">Tổng số đơn hàng đã hoàn thành</a>
                 </div>
             </div>
             <div class="col-lg-3 col-6">
                 <div class="small-box bg-danger">
                     <div class="inner">
-                        <h3 id="total_examination_last_month">12</h3>
-                        <p>Sản phẩm</p>
+                        <h3 id="total_order_last_month"></h3>
+                        <p>Đơn hàng</p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-fw fa-chart-pie"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Tổng số sản phầm hết</a>
+                    <a href="#" class="small-box-footer">Tổng số đơn hàng trong tháng trước</a>
                 </div>
             </div>
         </div>
@@ -59,13 +58,13 @@
                     <div class="card-header ui-sortable-handle" style="cursor: move;">
                         <h3 class="card-title">
                             <i class="fas fa-chart-pie mr-1"></i>
-                            ttttttttttttttttttttttttttttt
+                            Báo cáo doanh thu
                         </h3>
                         <div class="card-tools">
                             <ul class="nav nav-pills ml-auto">
                                 <li class="nav-item">
                                     <a class="nav-link active" href="#revenue-chart" data-toggle="tab">
-                                        pppppppppppppppppppppp
+                                        Tháng
                                     </a>
                                 </li>
                             </ul>
@@ -104,10 +103,10 @@
     <link rel="stylesheet" href="{{ asset('css/morris.css') }}">
     <script src="{{ asset('js/raphael-min.js') }}"></script>
     <script src="{{ asset('js/morris.min.js') }}"></script>
-{{--    <script>--}}
-{{--        const API_TOKEN = '{!! csrf_token() !!}';--}}
-{{--        const API_LIST = '{{ route('admin.dashboard') }}';--}}
-{{--        const FAIL_MESSAGE = '{{ __('messages.SM-003') }}';--}}
-{{--    </script>--}}
-{{--    <script src="{{ asset('js/pages/dashboard.js') }}"></script>--}}
+    <script>
+        const API_TOKEN = '{!! csrf_token() !!}';
+        const API_LIST = '{{ route('admin.dashboard') }}';
+        const FAIL_MESSAGE = '{{ __('messages.SM-003') }}';
+    </script>
+    <script src="{{ asset('js/admin/dashboard.js') }}"></script>
 @endpush

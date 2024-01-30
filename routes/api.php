@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\BrandController;
+use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\HomePageController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,6 +20,7 @@ use App\Http\Controllers\API\UserController;
 */
 
 Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/dashboard', [HomePageController::class, 'dashboard'])->name('dashboard');
     Route::prefix('nguoi-dung')->group(function () {
         Route::get('/list', [UserController::class, 'list'])
             ->name('list.user');
@@ -58,5 +62,30 @@ Route::prefix('admin')->name('admin.')->group(function () {
             ->name('delete.image');
         Route::get('/showProduct/{id}', [ProductController::class, 'showDetail'])
             ->name('show.detail.product');
+    });
+    Route::prefix('thuong-hieu')->group(function () {
+        Route::get('/list', [BrandController::class, 'list'])
+            ->name('list.brand');
+        Route::post('/add', [BrandController::class, 'add'])
+            ->name('add.brand');
+        Route::get('/{id}', [BrandController::class, 'detail'])
+            ->name('detail.brand');
+        Route::post('/update', [BrandController::class, 'update'])
+            ->name('update.brand');
+        Route::post('/delete', [BrandController::class, 'delete'])
+            ->name('delete.brand');
+    });
+
+    Route::prefix('loai-san-pham')->group(function () {
+        Route::get('/list', [CategoryController::class, 'list'])
+            ->name('list.category');
+        Route::post('/add', [CategoryController::class, 'add'])
+            ->name('add.category');
+        Route::get('/{id}', [CategoryController::class, 'detail'])
+            ->name('detail.category');
+        Route::post('/update', [CategoryController::class, 'update'])
+            ->name('update.category');
+        Route::post('/delete', [CategoryController::class, 'delete'])
+            ->name('delete.category');
     });
 });

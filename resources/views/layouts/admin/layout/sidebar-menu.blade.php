@@ -18,7 +18,6 @@
                     <i class="nav-icon fas fa-shopping-bag"></i>
                     <p>
                         Quản lý đơn hàng
-                        <span class="badge badge-info right">2</span>
                     </p>
                 </a>
             </li>
@@ -30,13 +29,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link" onclick="developing()">
+                <a href="../admin/loai-san-pham" class="nav-link" {{ (request()->segment(2) == 'loai-san-pham') ? 'active': ''}}>
                     <i class="nav-icon fas fa-tags"></i>
                     <p>Quản lý loại sản phẩm</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link" onclick="developing()">
+                <a href="../admin/thuong-hieu" class="nav-link" {{ (request()->segment(2) == 'thuong-hieu') ? 'active': ''}}">
                     <i class="nav-icon fas fa-bold"></i>
                     <p>Quản lý thương hiệu</p>
                 </a>

@@ -46,7 +46,7 @@ abstract class BaseService
         return $this->mainRepository->findOneOrFail($id);
     }
 
-    public function findBy(array $data, $columns = SELECT_ALL)
+    public function findBy(array $data, $columns = CommonConstants::SELECT_ALL)
     {
         return $this->mainRepository->findBy($data, $columns);
     }

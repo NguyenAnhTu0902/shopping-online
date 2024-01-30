@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Constants\CommonConstants;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -69,6 +70,17 @@ class Order extends Model
                 $closeTag,
             default => null
         };
+    }
+
+    public function scopeTimeInYear($query, $type = true)
+    {
+        if ($type) {
+            $query->whereMonth('payment', Carbon::now()->month);
+        } else {
+            $query->whereMonth('payment', Carbon::now()->subMonth()->month);
+        }
+        $query->whereYear('payment', Carbon::now()->year);
+        return $query;
     }
 
 }

@@ -62,4 +62,6 @@ Route::prefix('/admin')->middleware('CheckAdmin')->name('.admin')->group(functio
     Route::get('/nguoi-dung', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('user.index');
     Route::get('/don-hang', [App\Http\Controllers\Admin\OrderController::class, 'index'])->name('order.index');
     Route::get('/san-pham', [App\Http\Controllers\Admin\ProductController::class, 'index'])->name('product.index');
+    Route::get('/loai-san-pham', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('category.index');
+    Route::get('/thuong-hieu', [App\Http\Controllers\Admin\BrandController::class, 'index'])->name('brand.index');
 });

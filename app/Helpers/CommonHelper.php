@@ -7,17 +7,24 @@ use Illuminate\Support\Str;
 
 
 class CommonHelper
-{public static function uploadFile($file, $path)
 {
-    $file_name_original = $file->getClientOriginalName();
-    $extension = $file->getClientOriginalExtension();
-    $file_name_without_extension = Str::replaceLast('.' . $extension, '', $file_name_original);
-
-    $str_time_now = Carbon::now()->format('ymd_his');
-    $file_name = Str::slug($file_name_without_extension) . '_' .uniqid() . '_' .$str_time_now . '.' .$extension;
-
-    $file->move($path,$file_name);
-
-    return $file_name;
+    /**
+     * Get the gender.
+     *
+     * @param array $data
+     * @return array
+     */
+    public static function sortValueByMonth($data)
+    {
+        $result = [];
+        $data = array_column($data, null, 'month');
+        for ($month = 1; $month <= 12; $month++) {
+            $result[] = (object)[
+                'month' =>  Carbon::now()->year . "-" . $month,
+                'price' => !empty($data[$month]['price']) ? (int)$data[$month]['price'] : 0
+            ];
+        }
+        return $result;
+    }
 }
-}
+
