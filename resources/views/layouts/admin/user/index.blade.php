@@ -1,4 +1,4 @@
-@section('title', 'Nguời dùng'))
+@section('title', 'Người dùng'))
 @extends('layouts.admin.layout.master')
 @section('content-header')
     @include('layouts.admin.elements.user.search')

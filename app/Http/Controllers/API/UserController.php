@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\UserRequest;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -21,7 +22,7 @@ class UserController extends Controller
         return view('layouts.admin.elements.user.search-result', $response)->render();
     }
 
-    public function add(Request $request)
+    public function add(UserRequest $request)
     {
         $data = $request->only(
             'name',
@@ -52,7 +53,7 @@ class UserController extends Controller
         return $this->successResponse($response);
     }
 
-    public function update(Request $request)
+    public function update(UserRequest $request)
     {
         $data = $request->only(
             'id',

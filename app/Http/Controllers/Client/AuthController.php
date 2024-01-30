@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Constants\CommonConstants;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Client\UserRequest;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +41,7 @@ class AuthController extends Controller
             return redirect()->intended('');
         }else
         {
-            return back()->with('notification','ERROR: Email or password is wrong!');
+            return back()->with('notification','Lỗi: Email hoặc mật khẩu không đúng!');
         }
     }
     /**
@@ -59,11 +60,15 @@ class AuthController extends Controller
         return view('layouts.client.page.register');
     }
 
-    public function checkRegister(Request $request)
+    public function checkRegister(UserRequest $request)
     {
         if($request->password != $request->password_confirmation)
         {
-            return back()->with('notification','ERROR: Confirm password does not match!!');
+            return back()->with('notification','Xác nhận lại mật khẩu!!');
+        }
+        $user = $this->userService->findByAttrFirst('email', $request->email);
+        if($user){
+            return back()->with('notification','Email này đã tồn tại !');
         }
         $data = [
             'name' => $request->name,
@@ -71,7 +76,6 @@ class AuthController extends Controller
             'password' => bcrypt($request->password),
             'role' => CommonConstants::role_client,
             'phone' => $request->phone,
-            'address' => $request->address,
         ];
         $this->userService->create($data);
 

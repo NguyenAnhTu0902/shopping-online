@@ -23,7 +23,7 @@
                                 <label for="name-add" class="col-form-label col-form-label-sm">
                                     Tên người dùng <span class="text-red">(*)</span>
                                 </label>
-                                <input type="text" class="form-control form-control-sm" id="name-add" name="name">
+                                <input type="text" class="form-control form-control-sm" id="name-add" name="name" value="{{old('name')}}">
                                 <span id="name-add-error" class="error validate-error"></span>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                                 <label for="email-add" class="col-form-label col-form-label-sm">
                                     Email <span class="text-red">(*)</span>
                                 </label>
-                                <input type="text" class="form-control form-control-sm" id="email-add" name="email">
+                                <input type="text" class="form-control form-control-sm" id="email-add" name="email" value="{{old('email')}}">
                                 <span id="email-add-error" class="error validate-error"></span>
                             </div>
                         </div>
@@ -61,9 +61,9 @@
                         <div class="col-md-6">
                             <div class="form-group form-group-sm">
                                 <label for="password-add" class="col-form-label col-form-label-sm">
-                                    Số điện thoại
+                                    Số điện thoại<span class="text-red">(*)</span>
                                 </label>
-                                <input type="text" class="form-control form-control-sm" id="phone-add" name="phone">
+                                <input type="text" class="form-control form-control-sm" id="phone-add" name="phone" value="{{old('phone')}}">
                                 <span id="phone-add-error" class="error validate-error"></span>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                                 </label>
                                 <select class="form-control form-control-sm "
                                         id="role-add" name="role">
-                                    <option value="">--- Cấp độ ---</option>
+                                    <option value="{{old('role')}}">--- Cấp độ ---</option>
                                     @foreach(CommonConstants::$user_level as $key => $value)
                                         <option value="{{ $key }}">
                                             {{ $value }}

@@ -33,27 +33,38 @@
                             @csrf
                             <div class="group-input">
                                 <label for="name">Name *</label>
-                                <input type="text" id="name" name="name">
+                                @error('name')
+                                <span class="error validate-error">{{$message}}</span>
+                                @enderror
+                                <input type="text" id="name" name="name" value="{{old('name')}}">
                             </div>
                             <div class="group-input">
                                 <label for="email">Email address *</label>
-                                <input type="text" id="email" name="email">
+                                @error('email')
+                                <span class="error validate-error">{{$message}}</span>
+                                @enderror
+                                <input type="text" id="email" name="email" value="{{old('email')}}">
                             </div>
                             <div class="group-input">
                                 <label for="pass">Password *</label>
-                                <input type="password" id="pass" name="password">
+                                @error('password')
+                                <span class="error validate-error">{{$message}}</span>
+                                @enderror
+                                <input type="password" id="pass" name="password" >
                             </div>
                             <div class="group-input">
                                 <label for="con-pass">Confirm Password *</label>
+                                @error('password_confirmation')
+                                <span class="error validate-error">{{$message}}</span>
+                                @enderror
                                 <input type="password" id="con-pass" name="password_confirmation">
                             </div>
                             <div class="group-input">
                                 <label for="name">Phone *</label>
-                                <input type="text" id="phone" name="phone">
-                            </div>
-                            <div class="group-input">
-                                <label for="name">Address *</label>
-                                <input type="text" id="address" name="address">
+                                @error('phone')
+                                <span class="error validate-error">{{$message}}</span>
+                                @enderror
+                                <input type="text" id="phone" name="phone" value="{{old('phone')}}">
                             </div>
                             <button type="submit" class="site-btn register-btn">Register</button>
                             <div class="switch-login">

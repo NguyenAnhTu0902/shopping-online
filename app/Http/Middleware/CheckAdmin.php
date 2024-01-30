@@ -24,7 +24,7 @@ class CheckAdmin
 
         if(Auth::user()->role != CommonConstants::role_admin && Auth::user()->role != CommonConstants::role_host) {
             Auth::logout();
-            return redirect()->guest('admin/dang-nhap');
+            return redirect()->guest('admin/dang-nhap')->with('notification','Lỗi: Bạn không có quyền truy cập!');
         }
         return $next($request);
     }

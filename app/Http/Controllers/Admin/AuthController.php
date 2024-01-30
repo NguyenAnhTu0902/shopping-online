@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Constants\CommonConstants;
 use App\Http\Controllers\Controller;
 use App\Services\UserService;
 use Illuminate\Http\Request;
@@ -34,7 +33,7 @@ class AuthController extends Controller
             return redirect()->intended('admin');
         }else
         {
-            return back()->with('notification','ERROR: Email or password is wrong!');
+            return back()->with('notification','Lỗi: Email hoặc mật khẩu không đúng!');
         }
     }
 

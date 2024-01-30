@@ -23,7 +23,7 @@
                                 <label for="name-edit" class="col-form-label col-form-label-sm">
                                     Tên người dùng <span class="text-red">(*)</span>
                                 </label>
-                                <input type="text" class="form-control form-control-sm" id="name-edit" name="name">
+                                <input type="text" class="form-control form-control-sm" id="name-edit" name="name" value="{{old('name')}}">
                                 <span id="name-edit-error" class="error validate-error"></span>
                             </div>
                         </div>
@@ -41,9 +41,9 @@
                         <div class="col-md-6">
                             <div class="form-group form-group-sm">
                                 <label for="phone-edit" class="col-form-label col-form-label-sm">
-                                    Số điện thoại
+                                    Số điện thoại<span class="text-red">(*)</span>
                                 </label>
-                                <input type="text" class="form-control form-control-sm" id="phone-edit" name="phone">
+                                <input type="text" class="form-control form-control-sm" id="phone-edit" name="phone" value="{{old('phone')}}">
                                 <span id="phone-edit-error" class="error validate-error"></span>
                             </div>
                         </div>
