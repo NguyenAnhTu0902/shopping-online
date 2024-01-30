@@ -1,3 +1,4 @@
+@section('title', 'Trang quản trị'))
 @extends('layouts.admin.layout.master')
 @section('content')
     <div id="content-list">
