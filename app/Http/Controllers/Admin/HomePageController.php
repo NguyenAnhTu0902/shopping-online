@@ -16,6 +16,6 @@ class HomePageController extends Controller
     }
     public function index()
     {
-        return view('layouts.admin.elements.dashboard.index');
+        return view('layouts.admin.dashboard.index');
     }
 }
