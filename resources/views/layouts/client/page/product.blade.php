@@ -84,7 +84,7 @@
                         <div class="col-lg-6">
                             <div class="product-details">
                                 <div class="pd-title">
-                                    <span>{{$product->brand->name}}</span>
+                                    <span>{{$product->brand->name ?? ''}}</span>
                                     <h3>{{$product->name}}</h3>
                                     <a href="#" class="heart-icon">
                                         <i class="icon_heart_alt"></i>
@@ -111,7 +111,7 @@
                                     <button class="primary-btn pd-cart save-cart">Add To Cart</button>
                                 </div>
                                 <ul class="pd-tags">
-                                    <li><span>CATEGORIES</span>: {{$product->category->name}}</li>
+                                    <li><span>CATEGORIES</span>: {{$product->category->name ?? ''}}</li>
                                 </ul>
                                 <div class="pd-share">
                                     <div class="pd-social">

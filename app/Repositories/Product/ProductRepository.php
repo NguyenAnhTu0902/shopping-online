@@ -33,7 +33,10 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
                 $query->where('name', CommonConstants::OPERATOR_LIKE, "%{$search}%")
                     ->orWhereHas('category', function ($q) use ($search) {
                         $q->where('name', CommonConstants::OPERATOR_LIKE, "%{$search}%");
-                });
+                })
+                    ->orWhereHas('brand', function ($q) use ($search) {
+                        $q->where('name', CommonConstants::OPERATOR_LIKE, "%{$search}%");
+                    });
             })
             ->when($brand_ids, function ($query) use ($brand_ids) {
                 $query->whereIn('brand_id', $brand_ids);

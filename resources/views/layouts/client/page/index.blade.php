@@ -90,7 +90,7 @@
                     </div>
                     <div class="product-slider owl-carousel loafer">
                         @foreach($featured['loafer'] as $product)
-                            <div class="product-item item {{$product->brand->name}}">
+                            <div class="product-item item {{$product->brand->name ?? ''}}">
                                 <div class="pi-pic">
                                     <a href="/san-pham/{{$product->id}}">
                                         <img src="front/img/products/{{$product->productImages[0]->path}}" alt="">
@@ -180,7 +180,7 @@
                     </div>
                     <div class="product-slider owl-carousel boot">
                         @foreach($featured['boot'] as $product)
-                            <div class="product-item item {{$product->brand->name}}">
+                            <div class="product-item item {{$product->brand->name ?? ''}}">
                                 <div class="pi-pic">
                                     <a href="/san-pham/{{$product->id}}">
                                         <img src="front/img/products/{{$product->productImages[0]->path}}" alt="">
